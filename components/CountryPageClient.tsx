@@ -745,73 +745,67 @@ function TechnologyEducationSection({ country }: { country: Country }) {
   const brands = [
     {
       name: "Butterfly iQ+",
-      notes: "Single-probe ultrasound with multiple presets; strong training ecosystem.",
+      icon: "🦋",
+      notes: "Single-probe whole-body device covering OB, cardiac, lung, and FAST exams. App-based platform with built-in AI guidance. Designed for low-resource environments — charges via USB and works with any smartphone.",
       url: "https://www.butterflynetwork.com/",
     },
     {
       name: "Philips Lumify",
-      notes: "Mobile ultrasound with app-based workflow; widely used for POCUS education.",
+      icon: "🔵",
+      notes: "App-based probe that plugs into Android phones. Multiple transducer heads available for OB and point-of-care use. Widely used in GUSI-supported training programs globally.",
       url: "https://www.philips.com/lumify",
     },
     {
       name: "GE Vscan Air",
-      notes: "Wireless handheld; rapid bedside scanning; good for OB/FAST-style workflows.",
+      icon: "🟢",
+      notes: "Wireless, pocket-sized dual-probe handheld. Streams live images to a smartphone app. Excellent battery life — purpose-built for rapid bedside OB and FAST-style assessments.",
       url: "https://www.gehealthcare.com/products/ultrasound/portable-ultrasound/vscan-air",
     },
     {
-      name: "Clarius",
-      notes: "Wireless handheld; strong image quality; configurable presets.",
+      name: "Clarius HD3",
+      icon: "🔷",
+      notes: "High-resolution wireless handheld. Multiple probe configurations available. Strong image quality in a compact form factor — suitable for OB, lung, and neonatal scanning.",
       url: "https://clarius.com/",
     },
   ];
 
-  const riskRows: Array<{ risk: string; mechanism: string; reduction: string; caveat: string; citation: string; citationUrl: string }> = [
+  const gusiCourses = [
     {
-      risk: "Undiagnosed malpresentation (breech) at term",
-      mechanism: "Routine POCUS by trained midwives identifies breech before labour, enabling planned caesarean or ECV and preventing emergency obstructed delivery.",
-      reduction: "~69% fewer undiagnosed breech",
-      caveat: "Cohort study (UK hospitals); numbers may differ in LMIC settings with lower baseline scan rates.",
-      citation: "Salib et al., PLOS Medicine 2023 (RR 0.31, 95% CrI 0.21–0.45; posterior probability >99.9%)",
-      citationUrl: "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004192",
+      title: "OB POCUS Essentials",
+      description: "The core obstetric ultrasound curriculum — fetal presentation, placenta location, amniotic fluid, gestational age, and fetal heart. Designed for physicians, nurses, and midwives with no prior ultrasound experience.",
+      format: "Online + hands-on",
+      url: "https://globalultrasoundinstitute.com/product/obstetrics-pocus-essentials-course/",
+      color: "#1CABE2",
     },
     {
-      risk: "Neonatal distress (low Apgar <7 at 5 min) in breech deliveries",
-      mechanism: "Earlier diagnosis of breech enables planned delivery pathway, reducing intrapartum hypoxia in breech-presenting neonates.",
-      reduction: "~40% reduction",
-      caveat: "Same cohort study; applies specifically to pregnancies with confirmed breech presentation.",
-      citation: "Salib et al., PLOS Medicine 2023 (RR 0.60, 95% CrI 0.39–0.88; posterior probability 99.5%)",
-      citationUrl: "https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1004192",
+      title: "Pediatric POCUS",
+      description: "Point-of-care ultrasound for newborn and child emergencies — pneumonia, pneumothorax, cardiac tamponade, intussusception, and more. Critical for settings where neonatal and child mortality is highest.",
+      format: "Online + hands-on",
+      url: "https://globalultrasoundinstitute.com/product/pediatric-pocus-course/",
+      color: "#27AE60",
     },
     {
-      risk: "Missed life-threatening diagnoses (placenta previa, malpresentation, twins)",
-      mechanism: "Targeted ultrasound corrects wrong or incomplete diagnoses, prompting appropriate interventions before emergencies develop.",
-      reduction: "Up to 48% of women receive a life-saving intervention they would otherwise have missed",
-      caveat: "Single-country study (Rwanda); mechanism-based estimate, not a controlled mortality reduction.",
-      citation: "Wanyonyi et al., Ultrasound Int Open 2017 (PMC5462610); citing Rwanda referral data",
-      citationUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5462610/",
+      title: "FAST & Emergency POCUS",
+      description: "Focused Assessment with Sonography in Trauma — rapid detection of internal bleeding, haemothorax, and pericardial effusion. Life-saving in obstetric haemorrhage settings.",
+      format: "Online + hands-on",
+      url: "https://globalultrasoundinstitute.com/courses/",
+      color: "#E67E22",
     },
     {
-      risk: "Stillbirth from fetal growth restriction (FGR)",
-      mechanism: "Ultrasound + Doppler velocimetry detects FGR and triggers timely intervention (early delivery, referral), reducing antepartum and intrapartum stillbirth.",
-      reduction: "~20% reduction in antepartum/intrapartum stillbirth (Delphi expert consensus)",
-      caveat: "Delphi consensus estimate; requires functional referral and delivery capacity to realise the benefit.",
-      citation: "Gardosi et al., BMC Public Health 2011 (Screening + Doppler + management pathway)",
-      citationUrl: "https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-11-S3-S1",
-    },
-    {
-      risk: "Composite perinatal mortality (whole-population ANC ultrasound)",
-      mechanism: "Two routine ANC ultrasounds plus referral for detected conditions in resource-limited settings.",
-      reduction: "No significant reduction (RR 1.09, 95% CI 0.97–1.23)",
-      caveat: "Important honest finding: benefit requires functional referral and EmONC systems to translate detection into saved lives.",
-      citation: "Goldenberg, Nathan, Swanson et al. (First Look), BJOG 2018 — 5-country cluster RCT, n=47,297",
-      citationUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6390492/",
+      title: "Global Health Initiative",
+      description: "GUSI partners with hospitals, NGOs, and governments to deploy POCUS training at scale in sub-Saharan Africa, South Asia, and Latin America — including train-the-trainer models for local sustainability.",
+      format: "On-site program",
+      url: "https://globalultrasoundinstitute.com/global-health/",
+      color: "#8E44AD",
     },
   ];
 
   return (
     <div style={{ marginTop: "3rem" }}>
+
+      {/* Section heading */}
       <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
-        <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E4D8C,#1CABE2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(28,171,226,0.3)" }}>🧠</div>
+        <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E4D8C,#1CABE2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(28,171,226,0.3)" }}>�</div>
         <div>
           <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#1CABE2", marginBottom: "0.2rem" }}>Technology &amp; Education</div>
           <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif" }}>
@@ -821,89 +815,108 @@ function TechnologyEducationSection({ country }: { country: Country }) {
         <div style={{ flex: 1, height: 2, background: "linear-gradient(90deg,rgba(28,171,226,0.4),transparent)", borderRadius: 1 }} />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "1.25rem" }}>
+      {/* Top row: Implementation plan + Brands */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "1.25rem", marginBottom: "1.25rem" }}>
+
+        {/* Implementation Plan */}
         <div style={{ background: "#fff", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(28,171,226,0.06)" }}>
-          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🗺️ Implementation Plan</span>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🗺️ Deployment Roadmap for {country.name}</span>
           </div>
           <div style={{ padding: "1.4rem" }}>
-            <ol style={{ margin: 0, paddingLeft: "1.2rem", color: "#111", lineHeight: 1.85, fontSize: "1.02rem" }}>
-              <li><strong>Baseline assessment:</strong> facilities, referral paths, blood access, and who will scan.</li>
-              <li><strong>Training:</strong> OB POCUS essentials + competency checks + local champions.</li>
-              <li><strong>Devices + maintenance:</strong> procurement, cleaning, charging, spare parts, and calibration plan.</li>
-              <li><strong>Protocols:</strong> what to scan, when to refer, and how to document.</li>
-              <li><strong>Quality assurance:</strong> periodic image review + outcomes tracking.</li>
+            <ol style={{ margin: 0, paddingLeft: "1.2rem", color: "#111", lineHeight: 1.9, fontSize: "1.02rem" }}>
+              <li style={{ marginBottom: "0.5rem" }}><strong>Baseline assessment</strong> — map existing facilities, referral pathways, blood supply, and available midwives, nurses, and physicians who could be trained.</li>
+              <li style={{ marginBottom: "0.5rem" }}><strong>Provider training</strong> — enrol local champions in GUSI&apos;s OB POCUS Essentials + Pediatric POCUS courses. Certify a core group to train others.</li>
+              <li style={{ marginBottom: "0.5rem" }}><strong>Device procurement</strong> — select appropriate portable handheld devices based on power infrastructure, connectivity, and budget (see brands below).</li>
+              <li style={{ marginBottom: "0.5rem" }}><strong>Protocols &amp; referral integration</strong> — define what to scan, what findings trigger referral, and how to document scans at the point of care.</li>
+              <li><strong>Quality assurance</strong> — regular image review sessions, outcomes tracking, and refresher training to maintain competency.</li>
             </ol>
-            <p style={{ marginTop: "0.9rem", fontSize: "0.92rem", color: "#4a6880", lineHeight: 1.7 }}>
-              Note: This section is a deployment plan. Clinical outcomes and % reductions below will be filled only with peer-reviewed, source-backed evidence.
-            </p>
           </div>
         </div>
 
+        {/* Portable Ultrasound Brands */}
         <div style={{ background: "#fff", border: "1px solid rgba(22,163,74,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(22,163,74,0.06)" }}>
-          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(22,163,74,0.07)", borderBottom: "1px solid rgba(22,163,74,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#15803D", fontFamily: "'Montserrat',sans-serif" }}>🧳 Portable Ultrasound Brands</span>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(22,163,74,0.07)", borderBottom: "1px solid rgba(22,163,74,0.15)" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#15803D", fontFamily: "'Montserrat',sans-serif" }}>📡 Recommended Portable Ultrasound Devices</span>
           </div>
-          <div style={{ padding: "1.4rem", display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+          <div style={{ padding: "1.25rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {brands.map((b) => (
-              <div key={b.name} style={{ border: "1px solid #D0E8F5", borderRadius: 10, padding: "0.95rem 1rem", background: "#FAFCFE" }}>
-                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap" }}>
-                  <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif" }}>{b.name}</div>
-                  <a href={b.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#1CABE2", textDecoration: "none", fontWeight: 700 }}>
+              <div key={b.name} style={{ border: "1px solid #D0E8F5", borderRadius: 10, padding: "0.9rem 1rem", background: "#FAFCFE" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap", marginBottom: "0.3rem" }}>
+                  <div style={{ fontSize: "1.02rem", fontWeight: 800, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif" }}>{b.icon} {b.name}</div>
+                  <a href={b.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.85rem", color: "#1CABE2", textDecoration: "none", fontWeight: 700, whiteSpace: "nowrap" }}>
                     Website →
                   </a>
                 </div>
-                <div style={{ marginTop: "0.35rem", fontSize: "0.95rem", color: "#111", lineHeight: 1.75 }}>{b.notes}</div>
+                <div style={{ fontSize: "0.93rem", color: "#333", lineHeight: 1.7 }}>{b.notes}</div>
               </div>
             ))}
           </div>
         </div>
+      </div>
 
-        <div style={{ gridColumn: "1 / -1", background: "#fff", border: "1px solid rgba(239,154,154,0.25)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(239,154,154,0.06)" }}>
-          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(239,154,154,0.08)", borderBottom: "1px solid rgba(239,154,154,0.2)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#C0392B", fontFamily: "'Montserrat',sans-serif" }}>📉 Risk Reduction (Source-Backed)</span>
-          </div>
-          <div style={{ padding: "1.25rem 1.25rem 1.4rem" }}>
-            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-              <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0, minWidth: 820, fontFamily: "'Open Sans',sans-serif" }}>
-                <thead>
-                  <tr>
-                    {[
-                      "Risk / Complication",
-                      "How POCUS helps",
-                      "Estimated reduction",
-                      "Caveat",
-                      "Citation",
-                    ].map((h) => (
-                      <th key={h} style={{ textAlign: "left", padding: "0.8rem 0.9rem", fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#4a6880", borderBottom: "2px solid #D0E8F5", background: "#F5F9FC" }}>
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {riskRows.map((r) => (
-                    <tr key={r.risk}>
-                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#111", fontWeight: 700, minWidth: 160 }}>{r.risk}</td>
-                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#111", lineHeight: 1.7, minWidth: 200 }}>{r.mechanism}</td>
-                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#C0392B", fontFamily: "'Roboto Mono',monospace", fontWeight: 800, minWidth: 140 }}>{r.reduction}</td>
-                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#6B8FA8", fontSize: "0.88rem", lineHeight: 1.65, minWidth: 180 }}>{r.caveat}</td>
-                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", minWidth: 200 }}>
-                        <a href={r.citationUrl} target="_blank" rel="noopener noreferrer" style={{ color: "#1CABE2", textDecoration: "none", fontSize: "0.88rem", fontWeight: 600, lineHeight: 1.6 }}>
-                          {r.citation}
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+      {/* GUSI full feature section */}
+      <div style={{ background: "linear-gradient(135deg,#001828 0%,#002B4D 55%,#003F6B 100%)", border: "1px solid rgba(28,171,226,0.3)", borderRadius: 14, overflow: "hidden", marginBottom: "1.25rem", position: "relative" }}>
+        {/* Decorative glow */}
+        <div style={{ position: "absolute", top: -60, right: -60, width: 220, height: 220, background: "radial-gradient(circle,rgba(28,171,226,0.12),transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: -40, left: -40, width: 160, height: 160, background: "radial-gradient(circle,rgba(93,204,245,0.08),transparent 70%)", pointerEvents: "none" }} />
+
+        {/* Header */}
+        <div style={{ padding: "2rem 2.5rem 1.5rem", borderBottom: "1px solid rgba(255,255,255,0.08)", position: "relative" }}>
+          <div style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#5DCCF5", marginBottom: "0.5rem" }}>Global Ultrasound Institute · GUSI</div>
+          <h3 style={{ fontSize: "1.55rem", fontWeight: 800, color: "#fff", lineHeight: 1.2, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif", marginBottom: "0.85rem" }}>
+            The training that closes the gap — built for providers in settings like {country.name}
+          </h3>
+          <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.8, maxWidth: 820, margin: 0 }}>
+            GUSI trains physicians, nurses, midwives, and community health workers in Point-of-Care Ultrasound. Courses are designed from the ground up for providers in resource-limited settings — short, practical, competency-based, and available online or in person. Every course maps directly to the conditions killing mothers and babies during childbirth.
+          </p>
+        </div>
+
+        {/* GUSI stat strip */}
+        <div style={{ display: "flex", flexWrap: "wrap", borderBottom: "1px solid rgba(255,255,255,0.08)", position: "relative" }}>
+          {[
+            { num: "50+", label: "Countries trained" },
+            { num: "OB · Peds · Emergency", label: "POCUS specialties" },
+            { num: "Online + In-person", label: "Flexible delivery" },
+            { num: "WHO-aligned", label: "Curriculum standard" },
+          ].map(({ num, label }) => (
+            <div key={label} style={{ flex: "1 1 160px", padding: "1.2rem 1.5rem", borderRight: "1px solid rgba(255,255,255,0.07)", textAlign: "center" }}>
+              <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.15rem", fontWeight: 800, color: "#5DCCF5", marginBottom: "0.25rem" }}>{num}</div>
+              <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 600 }}>{label}</div>
             </div>
-            <p style={{ marginTop: "0.85rem", fontSize: "0.9rem", color: "#4a6880", lineHeight: 1.7 }}>
-              <strong>Evidence standard:</strong> All estimates are drawn from peer-reviewed RCTs, systematic reviews, or major Delphi consensus studies. Where only observational data exists, caveats are noted. No figures have been extrapolated or invented. The First Look RCT result is included in full to provide an honest, balanced picture — detection alone does not save lives without functioning referral and emergency obstetric care.
-            </p>
+          ))}
+        </div>
+
+        {/* GUSI Course cards */}
+        <div style={{ padding: "1.75rem 2rem 2rem", position: "relative" }}>
+          <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(255,255,255,0.5)", marginBottom: "1.2rem" }}>Available Courses</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1rem", marginBottom: "1.75rem" }}>
+            {gusiCourses.map((c) => (
+              <a key={c.title} href={c.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
+                <div style={{ background: "rgba(255,255,255,0.05)", border: `1px solid ${c.color}40`, borderRadius: 10, padding: "1.1rem 1.2rem", transition: "background 0.2s", cursor: "pointer" }}>
+                  <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: c.color, marginBottom: "0.4rem" }}>{c.format}</div>
+                  <div style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", marginBottom: "0.5rem", fontFamily: "'Montserrat',sans-serif" }}>{c.title}</div>
+                  <div style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.72 }}>{c.description}</div>
+                  <div style={{ marginTop: "0.85rem", fontSize: "0.85rem", fontWeight: 700, color: c.color }}>Learn more →</div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          {/* Final CTA */}
+          <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", flexWrap: "wrap" }}>
+            <a href="https://globalultrasoundinstitute.com/" target="_blank" rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.9rem 1.75rem", background: "#1CABE2", borderRadius: 8, textDecoration: "none", color: "#fff", fontWeight: 700, fontSize: "1rem", letterSpacing: "0.01em" }}>
+              🌍 Explore All GUSI Courses
+            </a>
+            <a href="https://globalultrasoundinstitute.com/global-health/" target="_blank" rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.9rem 1.75rem", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 8, textDecoration: "none", color: "rgba(255,255,255,0.88)", fontWeight: 600, fontSize: "1rem" }}>
+              🤝 GUSI Global Health Partnerships
+            </a>
           </div>
         </div>
       </div>
+
     </div>
   );
 }
