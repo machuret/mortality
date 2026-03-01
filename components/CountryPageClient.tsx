@@ -276,7 +276,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
                 {analysis.childMortality.causes.map((c) => (
                   <CauseBar key={c.label} label={c.label} pct={c.pct} color="#1CABE2" />
                 ))}
-                <p style={{ fontSize: "0.72rem", color: "#8AAEC4", marginTop: "0.5rem", fontStyle: "italic" }}>
+                <p style={{ fontSize: "0.85rem", color: "#4a6880", marginTop: "0.6rem", fontStyle: "italic" }}>
                   * Neonatal deaths (first 28 days) represent the largest share of under-5 mortality.
                 </p>
               </div>
@@ -309,7 +309,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
                 {analysis.maternalMortality.causes.map((c) => (
                   <CauseBar key={c.label} label={c.label} pct={c.pct} color="#FFB74D" />
                 ))}
-                <p style={{ fontSize: "0.72rem", color: "#8AAEC4", marginTop: "0.5rem", fontStyle: "italic" }}>
+                <p style={{ fontSize: "0.85rem", color: "#4a6880", marginTop: "0.6rem", fontStyle: "italic" }}>
                   * Haemorrhage and eclampsia together cause over 50% of deaths — both are treatable with basic skilled care.
                 </p>
               </div>
@@ -341,7 +341,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
                       <span style={{ color: "#EF9A9A", flexShrink: 0, marginTop: "0.1rem" }}>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                       </span>
-                      <span style={{ fontSize: "0.95rem", color: "#2a3f50", lineHeight: 1.55 }}>{d}</span>
+                      <span style={{ fontSize: "1rem", color: "#111", lineHeight: 1.6, fontWeight: 500 }}>{d}</span>
                     </div>
                   ))}
                 </div>
@@ -457,7 +457,7 @@ function POCUSCalculator({ country }: { country: Country }) {
       <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
         <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E4D8C,#1CABE2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(28,171,226,0.3)" }}>🧮</div>
         <div>
-          <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#1CABE2", marginBottom: "0.2rem" }}>Interactive Model</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#1CABE2", marginBottom: "0.2rem" }}>Interactive Model</div>
           <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif" }}>
             POCUS Impact Calculator — {country.name}
           </h2>
@@ -468,7 +468,7 @@ function POCUSCalculator({ country }: { country: Country }) {
       <div style={{ background: "#fff", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 14, overflow: "hidden", boxShadow: "0 4px 24px rgba(28,171,226,0.08)" }}>
         {/* Top: methodology note */}
         <div style={{ padding: "0.75rem 1.5rem", background: "rgba(28,171,226,0.06)", borderBottom: "1px solid rgba(28,171,226,0.12)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-          <span style={{ fontSize: "0.8rem", color: "#4a6880" }}>
+          <span style={{ fontSize: "0.9rem", color: "#1a2e3b" }}>
             Model based on: <strong>600 scans/provider/year</strong> · <strong>15% high-risk detection rate</strong> · <strong>47% mortality reduction</strong> for detected cases (Swanson et al. 2014 · WHO POCUS in LMICs review)
           </span>
         </div>
@@ -502,30 +502,30 @@ function POCUSCalculator({ country }: { country: Country }) {
 
             {/* Screens per year */}
             <div style={{ background: "linear-gradient(135deg,#F0F9FF,#E0F2FE)", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 10, padding: "1.25rem" }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#0E6EA3", marginBottom: "0.5rem" }}>Scans per Year</div>
+              <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#0E6EA3", marginBottom: "0.5rem" }}>Scans per Year</div>
               <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2rem", fontWeight: 900, color: "#003F6B", lineHeight: 1 }}>{screensPerYear.toLocaleString()}</div>
-              <div style={{ fontSize: "0.78rem", color: "#4a6880", marginTop: "0.35rem" }}>pregnant women screened</div>
+              <div style={{ fontSize: "0.88rem", color: "#1a2e3b", fontWeight: 500, marginTop: "0.35rem" }}>pregnant women screened</div>
             </div>
 
             {/* High-risk detected */}
             <div style={{ background: "linear-gradient(135deg,#FFF8E1,#FFF3CD)", border: "1px solid rgba(212,160,23,0.3)", borderRadius: 10, padding: "1.25rem" }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#B7791F", marginBottom: "0.5rem" }}>High-Risk Detected</div>
+              <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#B7791F", marginBottom: "0.5rem" }}>High-Risk Detected</div>
               <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2rem", fontWeight: 900, color: "#92400E", lineHeight: 1 }}>{highRiskDetected.toLocaleString()}</div>
-              <div style={{ fontSize: "0.78rem", color: "#4a6880", marginTop: "0.35rem" }}>flagged for referral / intervention</div>
+              <div style={{ fontSize: "0.88rem", color: "#1a2e3b", fontWeight: 500, marginTop: "0.35rem" }}>flagged for referral / intervention</div>
             </div>
 
             {/* Maternal deaths prevented */}
             <div style={{ background: "linear-gradient(135deg,#FFF0F0,#FFE4E4)", border: "1px solid rgba(231,76,60,0.2)", borderRadius: 10, padding: "1.25rem" }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#C0392B", marginBottom: "0.5rem" }}>Maternal Deaths Prevented</div>
+              <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#C0392B", marginBottom: "0.5rem" }}>Maternal Deaths Prevented</div>
               <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2rem", fontWeight: 900, color: "#922B21", lineHeight: 1 }}>{maternalDeathsPrevented.toLocaleString()}</div>
-              <div style={{ fontSize: "0.78rem", color: "#4a6880", marginTop: "0.35rem" }}>mothers saved per year</div>
+              <div style={{ fontSize: "0.88rem", color: "#1a2e3b", fontWeight: 500, marginTop: "0.35rem" }}>mothers saved per year</div>
             </div>
 
             {/* Newborn deaths prevented */}
             <div style={{ background: "linear-gradient(135deg,#F0FFF4,#DCFCE7)", border: "1px solid rgba(39,174,96,0.2)", borderRadius: 10, padding: "1.25rem" }}>
-              <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#15803D", marginBottom: "0.5rem" }}>Newborn Deaths Prevented</div>
+              <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "#15803D", marginBottom: "0.5rem" }}>Newborn Deaths Prevented</div>
               <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2rem", fontWeight: 900, color: "#14532D", lineHeight: 1 }}>{newbornDeathsPrevented.toLocaleString()}</div>
-              <div style={{ fontSize: "0.78rem", color: "#4a6880", marginTop: "0.35rem" }}>babies saved per year</div>
+              <div style={{ fontSize: "0.88rem", color: "#1a2e3b", fontWeight: 500, marginTop: "0.35rem" }}>babies saved per year</div>
             </div>
 
           </div>
@@ -533,7 +533,7 @@ function POCUSCalculator({ country }: { country: Country }) {
           {/* Summary bar */}
           <div style={{ background: "linear-gradient(135deg,#001828,#002B4D)", borderRadius: 12, padding: "1.5rem 2rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: 200 }}>
-              <div style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#1CABE2", marginBottom: "0.4rem" }}>Total Lives Saved Per Year</div>
+              <div style={{ fontSize: "0.82rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#1CABE2", marginBottom: "0.4rem" }}>Total Lives Saved Per Year</div>
               <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem" }}>
                 <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "3rem", fontWeight: 900, color: "#fff", lineHeight: 1 }}>{totalDeathsPrevented.toLocaleString()}</span>
                 <span style={{ fontSize: "0.9rem", color: "rgba(255,255,255,0.6)" }}>deaths prevented</span>
@@ -546,26 +546,26 @@ function POCUSCalculator({ country }: { country: Country }) {
             <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.6rem", fontWeight: 900, color: "#5DCCF5" }}>{livesPerProvider}</div>
-                <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.55)", marginTop: "0.2rem" }}>lives per provider</div>
+                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.8)", marginTop: "0.25rem" }}>lives per provider</div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.6rem", fontWeight: 900, color: "#27AE60" }}>
                   ${costPerLifeSaved > 0 ? costPerLifeSaved.toLocaleString() : "—"}
                 </div>
-                <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.55)", marginTop: "0.2rem" }}>est. cost per life saved</div>
+                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.8)", marginTop: "0.25rem" }}>est. cost per life saved</div>
               </div>
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.6rem", fontWeight: 900, color: "#FFB74D" }}>
                   ${trainingCost.toLocaleString()}
                 </div>
-                <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.55)", marginTop: "0.2rem" }}>total training investment</div>
+                <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.8)", marginTop: "0.25rem" }}>total training investment</div>
               </div>
             </div>
           </div>
 
           {/* Footnote */}
-          <p style={{ fontSize: "0.75rem", color: "#8AAEC4", marginTop: "1rem", lineHeight: 1.6 }}>
-            * This calculator uses a conservative evidence-based model. Actual impact varies by deployment context, provider experience, and health system capacity. Training cost estimate based on GUSI OB POCUS Essentials course pricing (~$495/provider). Mortality reduction estimate from peer-reviewed POCUS implementation studies in low-resource settings.
+          <p style={{ fontSize: "0.9rem", color: "#4a6880", marginTop: "1rem", lineHeight: 1.7 }}>
+            * This calculator uses a conservative evidence-based model. Actual impact varies by deployment context, provider experience, and health system capacity. Training cost based on GUSI OB POCUS Essentials (~$495/provider). Mortality reduction from peer-reviewed POCUS implementation studies in low-resource settings.
           </p>
         </div>
       </div>
@@ -580,7 +580,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
       <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
         <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E7C3A,#16A34A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(22,163,74,0.25)" }}>💡</div>
         <div>
-          <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#16A34A", marginBottom: "0.2rem" }}>Prevention &amp; Solutions</div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#16A34A", marginBottom: "0.2rem" }}>Prevention &amp; Solutions</div>
           <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif" }}>
             How Can We Prevent This in {countryName}?
           </h2>
@@ -597,7 +597,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
             <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#15803D", fontFamily: "'Montserrat',sans-serif" }}>📍 The Situation</span>
           </div>
           <div style={{ padding: "1.4rem" }}>
-            <p style={{ fontSize: "1rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.situation}</p>
+            <p style={{ fontSize: "1.05rem", color: "#111", lineHeight: 1.82, margin: 0 }}>{solution.situation}</p>
           </div>
         </div>
 
@@ -607,7 +607,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
             <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🔬 How Ultrasound Helps</span>
           </div>
           <div style={{ padding: "1.4rem" }}>
-            <p style={{ fontSize: "1rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.howUltrasoundHelps}</p>
+            <p style={{ fontSize: "1.05rem", color: "#111", lineHeight: 1.82, margin: 0 }}>{solution.howUltrasoundHelps}</p>
           </div>
         </div>
 
@@ -617,7 +617,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
             <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#C05621", fontFamily: "'Montserrat',sans-serif" }}>🎓 The Training Gap</span>
           </div>
           <div style={{ padding: "1.4rem" }}>
-            <p style={{ fontSize: "1rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.trainingGap}</p>
+            <p style={{ fontSize: "1.05rem", color: "#111", lineHeight: 1.82, margin: 0 }}>{solution.trainingGap}</p>
           </div>
         </div>
 
@@ -633,11 +633,11 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
 
         {/* Text */}
         <div style={{ flex: 1, minWidth: 260 }}>
-          <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#1CABE2", marginBottom: "0.4rem" }}>Global Ultrasound Institute · GUSI</div>
-          <div style={{ fontSize: "1.15rem", fontWeight: 800, color: "#fff", lineHeight: 1.25, letterSpacing: "-0.015em", marginBottom: "0.5rem" }}>
+          <div style={{ fontSize: "0.78rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#1CABE2", marginBottom: "0.5rem" }}>Global Ultrasound Institute · GUSI</div>
+          <div style={{ fontSize: "1.3rem", fontWeight: 800, color: "#fff", lineHeight: 1.25, letterSpacing: "-0.015em", marginBottom: "0.65rem", fontFamily: "'Montserrat',sans-serif" }}>
             The training that closes the gap exists today.
           </div>
-          <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.7, margin: 0 }}>
+          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.75, margin: 0 }}>
             GUSI trains physicians, nurses, midwives, and community health workers in Point-of-Care Ultrasound — the technology that detects the conditions killing mothers and babies before they become emergencies.
             OB POCUS · Pediatric POCUS · Primary Care POCUS · Online &amp; in-person.
           </p>
@@ -646,17 +646,17 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
         {/* Links */}
         <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem", flexShrink: 0 }}>
           <a href="https://globalultrasoundinstitute.com/product/obstetrics-pocus-essentials-course/" target="_blank" rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.35rem", background: "#1CABE2", borderRadius: 8, textDecoration: "none", color: "#fff", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.01em", whiteSpace: "nowrap" }}>
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.8rem 1.5rem", background: "#1CABE2", borderRadius: 8, textDecoration: "none", color: "#fff", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.01em", whiteSpace: "nowrap" }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             OB POCUS Essentials →
           </a>
           <a href="https://globalultrasoundinstitute.com/product/pediatric-pocus-course/" target="_blank" rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.35rem", background: "rgba(28,171,226,0.12)", border: "1px solid rgba(28,171,226,0.4)", borderRadius: 8, textDecoration: "none", color: "#5DCCF5", fontWeight: 600, fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.8rem 1.5rem", background: "rgba(28,171,226,0.12)", border: "1px solid rgba(28,171,226,0.4)", borderRadius: 8, textDecoration: "none", color: "#5DCCF5", fontWeight: 600, fontSize: "0.95rem", whiteSpace: "nowrap" }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2"/></svg>
             Pediatric POCUS →
           </a>
           <a href="https://globalultrasoundinstitute.com/global-health/" target="_blank" rel="noopener noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.35rem", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 8, textDecoration: "none", color: "rgba(255,255,255,0.75)", fontWeight: 600, fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.8rem 1.5rem", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 8, textDecoration: "none", color: "rgba(255,255,255,0.85)", fontWeight: 600, fontSize: "0.95rem", whiteSpace: "nowrap" }}>
             🌍 GUSI Global Health Initiatives
           </a>
         </div>
@@ -664,21 +664,21 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
 
       {/* "What POCUS detects" inline fact strip */}
       <div style={{ marginTop: "1.25rem", background: "#fff", border: "1px solid #D0E8F5", borderRadius: 10, padding: "1.1rem 1.5rem", display: "flex", gap: "0", flexWrap: "wrap" }}>
-        <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", color: "#1CABE2", width: "100%", marginBottom: "0.75rem" }}>What a trained provider can detect with a portable ultrasound device</div>
+        <div style={{ fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "#1CABE2", width: "100%", marginBottom: "1rem" }}>What a trained provider can detect with a portable ultrasound device</div>
         {[
           { icon: "🩸", label: "Placenta previa" },
           { icon: "🔄", label: "Malpresentation" },
           { icon: "👥", label: "Twin pregnancy" },
           { icon: "📉", label: "Fetal growth restriction" },
           { icon: "⚡", label: "Pre-eclampsia markers" },
-          { icon: "🫁", label: "Childhood pneumonia" },
+          { icon: "�됁", label: "Childhood pneumonia" },
           { icon: "💉", label: "Internal bleeding" },
           { icon: "🧠", label: "Hydrocephalus" },
         ].map(({ icon, label }) => (
-          <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.4rem", padding: "0.35rem 0.85rem 0.35rem 0", marginRight: "0.75rem", marginBottom: "0.4rem" }}>
-            <span style={{ fontSize: "0.9rem" }}>{icon}</span>
-            <span style={{ fontSize: "0.78rem", color: "#2a3f50", fontWeight: 600 }}>{label}</span>
-            <span style={{ width: 1, height: 12, background: "#D0E8F5", marginLeft: "0.75rem" }} />
+          <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.45rem 1rem 0.45rem 0", marginRight: "0.5rem", marginBottom: "0.5rem" }}>
+            <span style={{ fontSize: "1.1rem" }}>{icon}</span>
+            <span style={{ fontSize: "0.95rem", color: "#111", fontWeight: 600 }}>{label}</span>
+            <span style={{ width: 1, height: 14, background: "#D0E8F5", marginLeft: "0.75rem" }} />
           </div>
         ))}
       </div>
@@ -717,7 +717,7 @@ function StatFact({ icon, label, value, note, color }: { icon: string; label: st
           <span style={{ fontSize: "0.98rem", color: "#2a3f50", fontWeight: 600 }}>{label}</span>
           <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1rem", fontWeight: 700, color, flexShrink: 0 }}>{value}</span>
         </div>
-        <div style={{ fontSize: "0.8rem", color: "#6B8FA8", marginTop: "0.2rem" }}>{note}</div>
+        <div style={{ fontSize: "0.88rem", color: "#2a3f50", marginTop: "0.2rem", fontWeight: 500 }}>{note}</div>
       </div>
     </div>
   );
@@ -727,8 +727,8 @@ function CauseBar({ label, pct, color }: { label: string; pct: number; color: st
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "0.3rem" }}>
-        <span style={{ fontSize: "0.95rem", color: "#2a3f50", fontWeight: 500 }}>{label}</span>
-        <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "0.95rem", fontWeight: 700, color, flexShrink: 0, marginLeft: "0.5rem" }}>{pct}%</span>
+        <span style={{ fontSize: "1rem", color: "#111", fontWeight: 600 }}>{label}</span>
+        <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1rem", fontWeight: 700, color, flexShrink: 0, marginLeft: "0.5rem" }}>{pct}%</span>
       </div>
       <div style={{ height: 8, background: "#EBF5FB", borderRadius: 4, overflow: "hidden" }}>
         <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 4, transition: "width 0.8s ease-out", opacity: 0.85 }} />

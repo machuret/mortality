@@ -77,6 +77,40 @@ export default function CountryCarousel() {
     };
   }, [emblaApi, startAutoplay, stopAutoplay]);
 
+  // Stable Unsplash photo IDs per country — same map as country page hero
+  const COUNTRY_PHOTOS: Record<string, string> = {
+    afghanistan:           "photo-1601597111158-2fceff292cdc",
+    mali:                  "photo-1516026672322-bc52d61a55d5",
+    somalia:               "photo-1504198453767-d5f7b3c3f6b5",
+    "central-african-rep": "photo-1547471080-7cc2caa01a7e",
+    chad:                  "photo-1508193638397-1c4234db14d8",
+    "sierra-leone":        "photo-1568702846914-96b305d2aaeb",
+    niger:                 "photo-1504701954957-2010ec3bcec1",
+    guinea:                "photo-1578662996442-48f60103fc96",
+    "south-sudan":         "photo-1580060839134-75a5edca2e99",
+    nigeria:               "photo-1595435934249-5df7ed86e1c0",
+    "guinea-bissau":       "photo-1516026672322-bc52d61a55d5",
+    lesotho:               "photo-1523805009345-7448845a9e53",
+    mozambique:            "photo-1516026672322-bc52d61a55d5",
+    "burkina-faso":        "photo-1547471080-7cc2caa01a7e",
+    angola:                "photo-1571019613454-1cb2f99b2d8b",
+    benin:                 "photo-1568702846914-96b305d2aaeb",
+    mauritania:            "photo-1508193638397-1c4234db14d8",
+    cameroon:              "photo-1547471080-7cc2caa01a7e",
+    "cote-divoire":        "photo-1578662996442-48f60103fc96",
+    "dr-congo":            "photo-1547471080-7cc2caa01a7e",
+    liberia:               "photo-1568702846914-96b305d2aaeb",
+    uganda:                "photo-1580060839134-75a5edca2e99",
+    "equatorial-guinea":   "photo-1547471080-7cc2caa01a7e",
+    tanzania:              "photo-1516026672322-bc52d61a55d5",
+    "rep-of-congo":        "photo-1547471080-7cc2caa01a7e",
+    ethiopia:              "photo-1580060839134-75a5edca2e99",
+    madagascar:            "photo-1573843981267-be1999ff37cd",
+    malawi:                "photo-1516026672322-bc52d61a55d5",
+    sudan:                 "photo-1508193638397-1c4234db14d8",
+    haiti:                 "photo-1559827260-dc66d52bef19",
+  };
+
   // Build items — duplicate the list so the loop feels seamless
   const items = [...DATA, ...DATA];
 
@@ -110,7 +144,8 @@ export default function CountryCarousel() {
             const births = BIRTHS_ESTIMATE[country.slug] ?? 500_000;
             const annualChildDeaths = Math.round((country.infant / 1000) * births);
             const annualMaternalDeaths = Math.round((country.maternal / 100000) * births);
-            const photoUrl = `https://source.unsplash.com/featured/400x300/?${encodeURIComponent(country.name)},landscape,people,africa`;
+            const photoId = COUNTRY_PHOTOS[country.slug] ?? "photo-1547471080-7cc2caa01a7e";
+            const photoUrl = `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=400&h=300&q=80`;
 
             return (
               <div
@@ -167,35 +202,35 @@ export default function CountryCarousel() {
                       <div style={{ fontFamily: "'Montserrat',sans-serif", fontSize: "1rem", fontWeight: 800, color: "#1a2e3b", marginBottom: "0.6rem", lineHeight: 1.2 }}>{country.name}</div>
 
                       {/* Deaths stat */}
-                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.45rem" }}>
-                        <span style={{ fontSize: "0.65rem", color: "#E74C3C" }}>👶</span>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                        <span style={{ fontSize: "0.9rem" }}>👶</span>
                         <div>
-                          <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.25rem", fontWeight: 900, color: "#E74C3C", lineHeight: 1 }}>{formatDeaths(annualChildDeaths)}</span>
-                          <span style={{ fontSize: "0.68rem", color: "#6B8FA8", marginLeft: "0.35rem" }}>child deaths/yr</span>
+                          <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.35rem", fontWeight: 900, color: "#C0392B", lineHeight: 1 }}>{formatDeaths(annualChildDeaths)}</span>
+                          <span style={{ fontSize: "0.8rem", color: "#1a2e3b", fontWeight: 600, marginLeft: "0.4rem" }}>child deaths/yr</span>
                         </div>
                       </div>
 
                       {/* Infant rate bar */}
-                      <div style={{ marginBottom: "0.5rem" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.65rem", color: "#8AAEC4", marginBottom: "0.2rem" }}>
+                      <div style={{ marginBottom: "0.6rem" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.78rem", color: "#1a2e3b", fontWeight: 600, marginBottom: "0.25rem" }}>
                           <span>Infant mortality rate</span>
-                          <span style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, color: "#E74C3C" }}>{country.infant.toFixed(1)} / 1k</span>
+                          <span style={{ fontFamily: "'Roboto Mono',monospace", fontWeight: 700, color: "#C0392B" }}>{country.infant.toFixed(1)} / 1k</span>
                         </div>
-                        <div style={{ height: 4, background: "#EBF5FB", borderRadius: 2, overflow: "hidden" }}>
-                          <div style={{ height: "100%", width: `${Math.min((country.infant / 105) * 100, 100)}%`, background: "linear-gradient(90deg,#E67E22,#E74C3C)", borderRadius: 2 }} />
+                        <div style={{ height: 5, background: "#EBF5FB", borderRadius: 2, overflow: "hidden" }}>
+                          <div style={{ height: "100%", width: `${Math.min((country.infant / 105) * 100, 100)}%`, background: "linear-gradient(90deg,#E67E22,#C0392B)", borderRadius: 2 }} />
                         </div>
                       </div>
 
                       {/* Maternal deaths */}
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "0.45rem", borderTop: "1px solid #EBF5FB" }}>
-                        <span style={{ fontSize: "0.65rem", color: "#8AAEC4" }}>🤱 Maternal deaths/yr</span>
-                        <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "0.82rem", fontWeight: 700, color: "#E67E22" }}>{formatDeaths(annualMaternalDeaths)}</span>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "0.5rem", borderTop: "1px solid #D0E8F5" }}>
+                        <span style={{ fontSize: "0.78rem", color: "#1a2e3b", fontWeight: 600 }}>🤱 Maternal deaths/yr</span>
+                        <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "0.9rem", fontWeight: 700, color: "#E67E22" }}>{formatDeaths(annualMaternalDeaths)}</span>
                       </div>
 
                       {/* CTA */}
-                      <div style={{ marginTop: "0.75rem", fontSize: "0.7rem", fontWeight: 600, color: "#1CABE2", display: "flex", alignItems: "center", gap: "0.3rem" }}>
+                      <div style={{ marginTop: "0.8rem", fontSize: "0.82rem", fontWeight: 700, color: "#1CABE2", display: "flex", alignItems: "center", gap: "0.3rem" }}>
                         View full analysis
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                       </div>
                     </div>
                   </div>
