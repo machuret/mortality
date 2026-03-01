@@ -103,18 +103,91 @@ body {
   stroke-width: 1.5;
 }
 
+/* ═══════ RESPONSIVE: TABLET (≤960px) ═══════ */
 @media (max-width: 960px) {
-  .hero-inner        { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-  .footer-inner      { grid-template-columns: 1fr !important; }
-  .secondary-counters { display: none !important; }
-  .main-ticker-value { font-size: 2.4rem !important; }
+  .hero-inner          { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  .footer-inner        { grid-template-columns: 1fr !important; }
+  .secondary-counters  { display: none !important; }
+  .main-ticker-value   { font-size: 2.4rem !important; }
+
+  /* Rankings table: hide severity bar + vs-avg columns */
+  .rank-col-severity,
+  .rank-col-vsavg      { display: none !important; }
+  .rank-grid-row,
+  .rank-grid-header     { grid-template-columns: 44px 1fr 130px 110px !important; }
+  .rank-avg-row         { grid-template-columns: 44px 1fr 130px 110px !important; }
+
+  /* Country page: hero grid to 1 col */
+  .cp-hero-grid        { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  /* Country page: analysis cards to 1 col */
+  .cp-analysis-grid    { grid-template-columns: 1fr !important; }
+  /* Country page: stat strip wraps */
+  .cp-stat-strip       { flex-wrap: wrap !important; }
+  .cp-stat-cell        { min-width: 120px !important; padding: 0.6rem 1rem !important; }
+  /* Country page: GUSI banner to column */
+  .cp-gusi-banner      { flex-direction: column !important; }
+  .cp-gusi-links       { flex-direction: row !important; flex-wrap: wrap !important; }
+  /* Country page: flag section */
+  .cp-hero-left        { flex-direction: column !important; align-items: center !important; text-align: center !important; }
+  .cp-hero-left h1     { text-align: center; }
+  /* Country page: summary bar */
+  .cp-summary-bar      { flex-direction: column !important; gap: 1.25rem !important; }
 }
+
+/* ═══════ RESPONSIVE: MOBILE (≤680px) ═══════ */
 @media (max-width: 680px) {
-  .main-ticker-value { font-size: 2rem !important; }
-  .main-ticker-sub   { display: none !important; }
-  .td-bar-cell       { display: none !important; }
-  .hero-cta-row      { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
+  .main-ticker-value   { font-size: 2rem !important; }
+  .main-ticker-sub     { display: none !important; }
+  .td-bar-cell         { display: none !important; }
+  .hero-cta-row        { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
+
+  /* Rankings table: further simplify - hide region too */
+  .rank-col-region     { display: none !important; }
+  .rank-grid-row,
+  .rank-grid-header    { grid-template-columns: 36px 1fr 90px !important; }
+  .rank-avg-row        { grid-template-columns: 36px 1fr 90px !important; }
+
+  /* Country page: header breadcrumb */
+  .cp-breadcrumb       { display: none !important; }
+  .cp-header-right     { display: none !important; }
+  /* Country page: flag in hero */
+  .cp-flag-img         { width: 100px !important; height: auto !important; }
+  /* Country page: counter strip */
+  .cp-main-counter     { padding: 0.6rem 1rem !important; }
+  .cp-main-counter-num { font-size: 1.6rem !important; }
+  /* Country page: stat cells smaller */
+  .cp-stat-cell        { min-width: 100px !important; padding: 0.5rem 0.6rem !important; }
+  .cp-stat-num         { font-size: 1.3rem !important; }
+  /* Country page: solution cards to 1 col */
+  .cp-solution-grid    { grid-template-columns: 1fr !important; }
+  /* Country page: nav */
+  .cp-nav-bar          { flex-direction: column !important; align-items: stretch !important; gap: 0.75rem !important; }
+  .cp-nav-bar a        { justify-content: center !important; }
+  /* Country page: calculator cards */
+  .cp-calc-cards       { grid-template-columns: 1fr 1fr !important; }
+  /* Carousel header */
+  .carousel-header     { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
 }
-@media (max-width: 600px) {
-  .rank-table-wrap   { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ═══════ RESPONSIVE: SMALL MOBILE (≤480px) ═══════ */
+@media (max-width: 480px) {
+  /* Rankings: rank # + country + rate only */
+  .rank-grid-row,
+  .rank-grid-header    { grid-template-columns: 32px 1fr 80px !important; }
+  .rank-avg-row        { grid-template-columns: 32px 1fr 80px !important; }
+  .rank-num            { font-size: 0.85rem !important; }
+  .rank-country-name   { font-size: 0.85rem !important; }
+  .rank-country-link   { font-size: 0.6rem !important; }
+  .rank-rate           { font-size: 0.95rem !important; }
+  .rank-flag           { width: 24px !important; height: 16px !important; }
+
+  /* Country page: stat strip as column */
+  .cp-stat-strip       { flex-direction: column !important; }
+  .cp-stat-cell        { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; text-align: left !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; padding: 0.5rem 1rem !important; }
+  /* Calculator cards to 1 col */
+  .cp-calc-cards       { grid-template-columns: 1fr !important; }
+  /* Hero font */
+  .cp-hero-title       { font-size: 1.6rem !important; }
+  /* Structural barriers */
+  .cp-drivers-grid     { grid-template-columns: 1fr !important; }
 }

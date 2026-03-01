@@ -78,23 +78,21 @@ export default function RankingsTable() {
         </div>
 
         {/* Column headers */}
-        <div style={{
+        <div className="rank-grid-header" style={{
           display: "grid", gridTemplateColumns: "52px 1fr 160px 130px 100px 180px",
           gap: 0, padding: "0.6rem 1.5rem",
           background: "#F5F9FC", borderBottom: "1.5px solid #D0E8F5",
         }}>
-          {["#", "Country", "Region", "Rate", "vs Avg", "Severity"].map((h, i) => (
-            <div key={h} style={{
-              fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase",
-              letterSpacing: "0.14em", color: "#8AAEC4",
-              textAlign: i >= 3 ? "right" : "left",
-              paddingRight: i >= 3 ? "0.5rem" : 0,
-            }}>{h}</div>
-          ))}
+          <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#8AAEC4" }}>#</div>
+          <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#8AAEC4" }}>Country</div>
+          <div className="rank-col-region" style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#8AAEC4" }}>Region</div>
+          <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#8AAEC4", textAlign: "right", paddingRight: "0.5rem" }}>Rate</div>
+          <div className="rank-col-vsavg" style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#8AAEC4", textAlign: "right", paddingRight: "0.5rem" }}>vs Avg</div>
+          <div className="rank-col-severity" style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#8AAEC4" }}>Severity</div>
         </div>
 
         {/* World avg reference row */}
-        <div style={{
+        <div className="rank-avg-row" style={{
           display: "grid", gridTemplateColumns: "52px 1fr 160px 130px 100px 180px",
           gap: 0, padding: "0.65rem 1.5rem",
           background: "#EBF5FB", borderBottom: "1px dashed #B8D8EE",
@@ -105,12 +103,12 @@ export default function RankingsTable() {
             <span style={{ fontSize: "1.1rem" }}>🌍</span>
             <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "#1CABE2", fontFamily: "'Open Sans',sans-serif" }}>World Average</span>
           </div>
-          <div style={{ fontSize: "0.82rem", color: "#8AAEC4", fontStyle: "italic", fontFamily: "'Open Sans',sans-serif" }}>Global</div>
+          <div className="rank-col-region" style={{ fontSize: "0.82rem", color: "#8AAEC4", fontStyle: "italic", fontFamily: "'Open Sans',sans-serif" }}>Global</div>
           <div style={{ textAlign: "right", fontFamily: "'Roboto Mono',monospace", fontSize: "0.95rem", fontWeight: 700, color: "#1CABE2", paddingRight: "0.5rem" }}>
             {mode === "infant" ? AVG_INF : AVG_MAT.toLocaleString()}
           </div>
-          <div style={{ textAlign: "right", fontSize: "0.8rem", color: "#8AAEC4", paddingRight: "0.5rem" }}>1.0×</div>
-          <div>
+          <div className="rank-col-vsavg" style={{ textAlign: "right", fontSize: "0.8rem", color: "#8AAEC4", paddingRight: "0.5rem" }}>1.0×</div>
+          <div className="rank-col-severity">
             <SegmentBar pct={Math.round(avg / maxVal * 100)} color="#1CABE2" />
           </div>
         </div>
@@ -145,6 +143,7 @@ export default function RankingsTable() {
                 style={{ marginBottom: 6 }}
               >
                 <motion.div
+                  className="rank-grid-row"
                   whileHover={{ y: -1, boxShadow: `0 4px 20px ${sev.text}18` }}
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   style={{
@@ -165,12 +164,13 @@ export default function RankingsTable() {
 
                   {/* Rank number */}
                   <div style={{ textAlign: "center" }}>
-                    <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 800, color: rankColor, letterSpacing: "-0.02em" }}>{rankNum}</span>
+                    <span className="rank-num" style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 800, color: rankColor, letterSpacing: "-0.02em" }}>{rankNum}</span>
                   </div>
 
                   {/* Country */}
                   <Link href={`/country/${c.slug}`} style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
                     <img
+                      className="rank-flag"
                       src={`https://flagcdn.com/w40/${c.iso2}.png`}
                       alt={c.name}
                       width={32}
@@ -178,21 +178,21 @@ export default function RankingsTable() {
                       style={{ borderRadius: 3, boxShadow: "0 1px 4px rgba(0,0,0,0.2)", objectFit: "cover", flexShrink: 0 }}
                     />
                     <div>
-                      <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1a2e3b", letterSpacing: "-0.01em", fontFamily: "'Open Sans',sans-serif" }}>{c.name}</div>
-                      <div style={{ fontSize: "0.7rem", color: "#1CABE2", fontWeight: 600, marginTop: "0.08rem" }}>View full analysis →</div>
+                      <div className="rank-country-name" style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1a2e3b", letterSpacing: "-0.01em", fontFamily: "'Open Sans',sans-serif" }}>{c.name}</div>
+                      <div className="rank-country-link" style={{ fontSize: "0.7rem", color: "#1CABE2", fontWeight: 600, marginTop: "0.08rem" }}>View full analysis →</div>
                     </div>
                   </Link>
 
                   {/* Region */}
-                  <div style={{ fontSize: "0.8rem", color: "#6B8FA8", fontWeight: 500, fontFamily: "'Open Sans',sans-serif" }}>{c.region}</div>
+                  <div className="rank-col-region" style={{ fontSize: "0.8rem", color: "#6B8FA8", fontWeight: 500, fontFamily: "'Open Sans',sans-serif" }}>{c.region}</div>
 
                   {/* Rate */}
                   <div style={{ textAlign: "right", paddingRight: "0.5rem" }}>
-                    <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.15rem", fontWeight: 800, color: sev.text }}>{valFmt}</span>
+                    <span className="rank-rate" style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.15rem", fontWeight: 800, color: sev.text }}>{valFmt}</span>
                   </div>
 
                   {/* vs Avg */}
-                  <div style={{ textAlign: "right", paddingRight: "0.5rem" }}>
+                  <div className="rank-col-vsavg" style={{ textAlign: "right", paddingRight: "0.5rem" }}>
                     <span style={{
                       display: "inline-block", padding: "0.22rem 0.55rem",
                       borderRadius: 5, fontSize: "0.75rem", fontWeight: 700,
@@ -202,7 +202,7 @@ export default function RankingsTable() {
                   </div>
 
                   {/* Severity bar */}
-                  <div style={{ paddingLeft: "0.25rem" }}>
+                  <div className="rank-col-severity" style={{ paddingLeft: "0.25rem" }}>
                     <SegmentBar pct={pct} color={sev.text} />
                   </div>
 

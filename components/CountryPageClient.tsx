@@ -117,13 +117,13 @@ export default function CountryPageClient({ country, analysis }: Props) {
               <div style={{ width: 30, height: 30, background: "#1CABE2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", flexShrink: 0 }}>🩺</div>
               <span style={{ fontSize: "0.9rem", fontWeight: 800, color: "#fff", fontFamily: "'Montserrat',sans-serif" }}>Stop Maternal Mortality</span>
             </Link>
-            <span style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
-            <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)" }}>Countries</span>
-            <span style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
-            <span className="flag-emoji" style={{ fontSize: "1.1rem" }}>{country.flag}</span>
-            <span style={{ fontSize: "0.82rem", color: "#5DCCF5", fontWeight: 600 }}>{country.name}</span>
+            <span className="cp-breadcrumb" style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
+            <span className="cp-breadcrumb" style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)" }}>Countries</span>
+            <span className="cp-breadcrumb" style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
+            <span className="cp-breadcrumb flag-emoji" style={{ fontSize: "1.1rem" }}>{country.flag}</span>
+            <span className="cp-breadcrumb" style={{ fontSize: "0.82rem", color: "#5DCCF5", fontWeight: 600 }}>{country.name}</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <div className="cp-header-right" style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.45)" }}>WHO · UNICEF · UN IGME 2024</span>
             <Link href="/" style={{ fontSize: "0.75rem", color: "#5DCCF5", textDecoration: "none", fontWeight: 600, border: "1px solid rgba(93,204,245,0.35)", padding: "0.28rem 0.8rem", borderRadius: 4 }}>
               ← All Countries
@@ -133,7 +133,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
 
         {/* Live counter strip */}
         <div style={{ background: "linear-gradient(90deg,#002B4D 0%,#003F6B 40%,#004880 100%)", borderBottom: "2px solid rgba(28,171,226,0.25)" }}>
-          <div style={{ maxWidth: 1340, margin: "0 auto", padding: "0 2rem", display: "flex", alignItems: "stretch", gap: 0 }}>
+          <div className="cp-stat-strip" style={{ maxWidth: 1340, margin: "0 auto", padding: "0 2rem", display: "flex", alignItems: "stretch", gap: 0 }}>
 
             {/* Flag + country name */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.9rem", padding: "0.8rem 2rem 0.8rem 0", borderRight: "1px solid rgba(255,255,255,0.1)", flexShrink: 0 }}>
@@ -148,12 +148,12 @@ export default function CountryPageClient({ country, analysis }: Props) {
             </div>
 
             {/* Main counter */}
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.8rem 2rem", borderRight: "1px solid rgba(255,255,255,0.1)", position: "relative", flexShrink: 0 }}>
+            <div className="cp-main-counter" style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0.8rem 2rem", borderRight: "1px solid rgba(255,255,255,0.1)", position: "relative", flexShrink: 0 }}>
               <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: "#5DCCF5", boxShadow: "0 0 16px rgba(93,204,245,0.8)" }} />
               <div style={{ fontSize: "0.62rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "rgba(255,255,255,0.75)", fontWeight: 700, marginBottom: "0.1rem", display: "flex", alignItems: "center", gap: "0.35rem", paddingLeft: "0.75rem" }}>
                 <span className="live-dot" /> Child Deaths Since Jan 1, 2026
               </div>
-              <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.4rem", fontWeight: 900, color: "#fff", lineHeight: 1, paddingLeft: "0.75rem", textShadow: "0 0 30px rgba(93,204,245,0.5)" }}>
+              <div className="cp-main-counter-num" style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.4rem", fontWeight: 900, color: "#fff", lineHeight: 1, paddingLeft: "0.75rem", textShadow: "0 0 30px rgba(93,204,245,0.5)" }}>
                 {childDeaths.toLocaleString("en-US")}
               </div>
               <div style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.5)", paddingLeft: "0.75rem", marginTop: "0.1rem" }}>
@@ -167,9 +167,9 @@ export default function CountryPageClient({ country, analysis }: Props) {
               { label: "Infant Mortality Rate", val: country.infant.toFixed(1), unit: `per 1,000 · ${infantMult}× world avg`, color: infantColor },
               { label: "Maternal Mortality Rate", val: country.maternal.toLocaleString(), unit: `per 100,000 · ${maternalMult}× world avg`, color: maternalColor },
             ].map(({ label, val, unit, color }) => (
-              <div key={label} style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0.8rem 1.8rem", borderRight: "1px solid rgba(255,255,255,0.08)", textAlign: "center", minWidth: 155 }}>
+              <div key={label} className="cp-stat-cell" style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0.8rem 1.8rem", borderRight: "1px solid rgba(255,255,255,0.08)", textAlign: "center", minWidth: 155 }}>
                 <div style={{ fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.13em", color: "rgba(255,255,255,0.72)", fontWeight: 700, marginBottom: "0.2rem" }}>{label}</div>
-                <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.8rem", fontWeight: 800, lineHeight: 1, color }}>{val}</div>
+                <div className="cp-stat-num" style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.8rem", fontWeight: 800, lineHeight: 1, color }}>{val}</div>
                 <div style={{ fontSize: "0.58rem", color: "rgba(255,255,255,0.45)", marginTop: "0.18rem", letterSpacing: "0.06em" }}>{unit}</div>
               </div>
             ))}
@@ -190,13 +190,14 @@ export default function CountryPageClient({ country, analysis }: Props) {
         {/* Dark gradient overlay */}
         <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(105deg,rgba(0,12,30,0.92) 0%,rgba(0,20,45,0.82) 50%,rgba(0,15,35,0.65) 100%)" }} />
 
-        <div style={{ position: "relative", zIndex: 2, maxWidth: 1340, margin: "0 auto", padding: "4rem 2rem", width: "100%", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "4rem", alignItems: "center" }}>
+        <div className="cp-hero-grid" style={{ position: "relative", zIndex: 2, maxWidth: 1340, margin: "0 auto", padding: "4rem 2rem", width: "100%", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "4rem", alignItems: "center" }}>
 
           {/* Left: big flag + title + summary */}
-          <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
+          <div className="cp-hero-left" style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
             {/* Giant real flag image */}
             <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem" }}>
               <img
+                className="cp-flag-img"
                 src={`https://flagcdn.com/w160/${country.iso2}.png`}
                 srcSet={`https://flagcdn.com/w320/${country.iso2}.png 2x`}
                 alt={`Flag of ${country.name}`}
@@ -211,7 +212,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
                 <span style={{ width: 22, height: 2, background: "#1CABE2", display: "inline-block" }} />
                 Birth Mortality Crisis
               </div>
-              <h1 style={{ fontSize: "clamp(1.9rem,3.8vw,3.2rem)", fontWeight: 900, color: "#fff", lineHeight: 1.08, marginBottom: "1.3rem", fontFamily: "'Montserrat',sans-serif" }}>
+              <h1 className="cp-hero-title" style={{ fontSize: "clamp(1.9rem,3.8vw,3.2rem)", fontWeight: 900, color: "#fff", lineHeight: 1.08, marginBottom: "1.3rem", fontFamily: "'Montserrat',sans-serif" }}>
                 Mothers &amp; Newborns<br />Dying in {country.name}<br />
                 <span style={{ color: "#5DCCF5" }}>During Childbirth</span>
               </h1>
@@ -256,7 +257,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
       <div style={{ maxWidth: 1340, margin: "0 auto", padding: "3rem 2rem" }}>
 
         {analysis ? (
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
+          <div className="cp-analysis-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
 
             {/* ── NEWBORN / CHILD SECTION ── */}
             <div style={{ gridColumn: "1 / -1" }}>
@@ -335,7 +336,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
                   <div style={{ width: 3, height: 16, background: "#EF9A9A", borderRadius: 2 }} />
                   <span style={{ fontSize: "1rem", fontWeight: 700, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif" }}>Structural Barriers to Safe Birth in {country.name}</span>
                 </div>
-                <div style={{ padding: "1.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "0.75rem" }}>
+                <div className="cp-drivers-grid" style={{ padding: "1.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "0.75rem" }}>
                   {analysis.drivers.map((d, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.7rem", padding: "0.75rem 1rem", background: "rgba(239,154,154,0.05)", borderRadius: 6, border: "1px solid rgba(239,154,154,0.15)" }}>
                       <span style={{ color: "#EF9A9A", flexShrink: 0, marginTop: "0.1rem" }}>
@@ -373,7 +374,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
         <POCUSCalculator country={country} />
 
         {/* ── NAVIGATION ── */}
-        <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "2px solid #D0E8F5", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
+        <div className="cp-nav-bar" style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "2px solid #D0E8F5", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
           <div>
             {prevCountry && (
               <Link href={`/country/${prevCountry.slug}`} style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", padding: "0.75rem 1.25rem", background: "#fff", border: "1.5px solid #D0E8F5", borderRadius: 8, textDecoration: "none", color: "#003F6B", fontWeight: 600, fontSize: "0.9rem" }}>
@@ -403,7 +404,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
               <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#1CABE2" }} />
-              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff" }}>Every Life Counts</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff", fontFamily: "'Montserrat',sans-serif" }}>Stop Maternal Mortality</span>
             </div>
             <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.5)" }}>Data: WHO · UNICEF · UN IGME 2024 · World Bank · CIA Factbook 2024</p>
           </div>
@@ -498,7 +499,7 @@ function POCUSCalculator({ country }: { country: Country }) {
           </div>
 
           {/* Result cards grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
+          <div className="cp-calc-cards" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
 
             {/* Screens per year */}
             <div style={{ background: "linear-gradient(135deg,#F0F9FF,#E0F2FE)", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 10, padding: "1.25rem" }}>
@@ -531,7 +532,7 @@ function POCUSCalculator({ country }: { country: Country }) {
           </div>
 
           {/* Summary bar */}
-          <div style={{ background: "linear-gradient(135deg,#001828,#002B4D)", borderRadius: 12, padding: "1.5rem 2rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
+          <div className="cp-summary-bar" style={{ background: "linear-gradient(135deg,#001828,#002B4D)", borderRadius: 12, padding: "1.5rem 2rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
             <div style={{ flex: 1, minWidth: 200 }}>
               <div style={{ fontSize: "0.82rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#1CABE2", marginBottom: "0.4rem" }}>Total Lives Saved Per Year</div>
               <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem" }}>
@@ -589,7 +590,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
       </div>
 
       {/* Three-column card grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "1.25rem", marginBottom: "1.75rem" }}>
+      <div className="cp-solution-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "1.25rem", marginBottom: "1.75rem" }}>
 
         {/* Situation */}
         <div style={{ background: "#fff", border: "1px solid rgba(22,163,74,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(22,163,74,0.06)" }}>
@@ -624,7 +625,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
       </div>
 
       {/* GUSI CTA banner */}
-      <div style={{ background: "linear-gradient(135deg,#001828 0%,#002B4D 50%,#003F6B 100%)", border: "1px solid rgba(28,171,226,0.3)", borderRadius: 14, padding: "2rem 2.5rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap", position: "relative", overflow: "hidden" }}>
+      <div className="cp-gusi-banner" style={{ background: "linear-gradient(135deg,#001828 0%,#002B4D 50%,#003F6B 100%)", border: "1px solid rgba(28,171,226,0.3)", borderRadius: 14, padding: "2rem 2.5rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap", position: "relative", overflow: "hidden" }}>
         {/* Decorative glow */}
         <div style={{ position: "absolute", top: -40, right: -40, width: 180, height: 180, background: "radial-gradient(circle,rgba(28,171,226,0.15),transparent 70%)", pointerEvents: "none" }} />
 
@@ -644,7 +645,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
         </div>
 
         {/* Links */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem", flexShrink: 0 }}>
+        <div className="cp-gusi-links" style={{ display: "flex", flexDirection: "column", gap: "0.65rem", flexShrink: 0 }}>
           <a href="https://globalultrasoundinstitute.com/product/obstetrics-pocus-essentials-course/" target="_blank" rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.8rem 1.5rem", background: "#1CABE2", borderRadius: 8, textDecoration: "none", color: "#fff", fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.01em", whiteSpace: "nowrap" }}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>

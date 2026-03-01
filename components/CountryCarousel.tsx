@@ -118,7 +118,7 @@ export default function CountryCarousel() {
     <div style={{ width: "100%", background: "linear-gradient(180deg,#F5F9FC 0%,#EBF5FB 100%)", padding: "3rem 0 3.5rem", overflow: "hidden" }}>
       {/* Header */}
       <div style={{ maxWidth: 1340, margin: "0 auto", padding: "0 2rem", marginBottom: "2rem" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}>
+        <div className="carousel-header" style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}>
           <div>
             <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.22em", color: "#1CABE2", marginBottom: "0.3rem" }}>30 Highest-Mortality Countries</div>
             <h2 style={{ fontSize: "1.65rem", fontWeight: 800, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
