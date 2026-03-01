@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Country, DATA, AVG_INF, AVG_MAT, MAX_INF, MAX_MAT } from "@/lib/data";
 import { CountryAnalysis } from "@/lib/countryAnalysis";
+import { getSolutionBySlug, CountrySolution } from "@/lib/solutionData";
 
 const SPY = 365.25 * 86400;
 
@@ -64,6 +65,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
   const maternalMult = (country.maternal / AVG_MAT).toFixed(1);
 
   const rank = [...DATA].sort((a, b) => b.infant - a.infant).findIndex(c => c.slug === country.slug) + 1;
+  const solution = getSolutionBySlug(country.slug);
 
   const prevCountry = DATA[DATA.findIndex(c => c.slug === country.slug) - 1] ?? null;
   const nextCountry = DATA[DATA.findIndex(c => c.slug === country.slug) + 1] ?? null;
@@ -317,6 +319,9 @@ export default function CountryPageClient({ country, analysis }: Props) {
           </div>
         )}
 
+        {/* ── SOLUTION MODULE ── */}
+        {solution && <SolutionModule solution={solution} countryName={country.name} />}
+
         {/* ── NAVIGATION ── */}
         <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "2px solid #D0E8F5", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
           <div>
@@ -356,6 +361,122 @@ export default function CountryPageClient({ country, analysis }: Props) {
         </div>
       </footer>
 
+    </div>
+  );
+}
+
+function SolutionModule({ solution, countryName }: { solution: CountrySolution; countryName: string }) {
+  return (
+    <div style={{ marginTop: "3rem" }}>
+      {/* Section header */}
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
+        <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E7C3A,#16A34A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(22,163,74,0.25)" }}>💡</div>
+        <div>
+          <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#16A34A", marginBottom: "0.2rem" }}>Prevention &amp; Solutions</div>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+            How Can We Prevent This in {countryName}?
+          </h2>
+        </div>
+        <div style={{ flex: 1, height: 2, background: "linear-gradient(90deg,rgba(22,163,74,0.4),transparent)", borderRadius: 1 }} />
+      </div>
+
+      {/* Three-column card grid */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "1.25rem", marginBottom: "1.75rem" }}>
+
+        {/* Situation */}
+        <div style={{ background: "#fff", border: "1px solid rgba(22,163,74,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(22,163,74,0.06)" }}>
+          <div style={{ padding: "0.75rem 1.25rem", background: "rgba(22,163,74,0.07)", borderBottom: "1px solid rgba(22,163,74,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1rem" }}>📍</span>
+            <span style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#15803D" }}>The Situation</span>
+          </div>
+          <div style={{ padding: "1.25rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.situation}</p>
+          </div>
+        </div>
+
+        {/* How ultrasound helps */}
+        <div style={{ background: "#fff", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(28,171,226,0.06)" }}>
+          <div style={{ padding: "0.75rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1rem" }}>🔬</span>
+            <span style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#0E6EA3" }}>How Ultrasound Helps</span>
+          </div>
+          <div style={{ padding: "1.25rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.howUltrasoundHelps}</p>
+          </div>
+        </div>
+
+        {/* Training gap */}
+        <div style={{ background: "#fff", border: "1px solid rgba(230,126,34,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(230,126,34,0.06)" }}>
+          <div style={{ padding: "0.75rem 1.25rem", background: "rgba(230,126,34,0.07)", borderBottom: "1px solid rgba(230,126,34,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1rem" }}>🎓</span>
+            <span style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#C05621" }}>The Training Gap</span>
+          </div>
+          <div style={{ padding: "1.25rem" }}>
+            <p style={{ fontSize: "0.92rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.trainingGap}</p>
+          </div>
+        </div>
+
+      </div>
+
+      {/* GUSI CTA banner */}
+      <div style={{ background: "linear-gradient(135deg,#001828 0%,#002B4D 50%,#003F6B 100%)", border: "1px solid rgba(28,171,226,0.3)", borderRadius: 14, padding: "2rem 2.5rem", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap", position: "relative", overflow: "hidden" }}>
+        {/* Decorative glow */}
+        <div style={{ position: "absolute", top: -40, right: -40, width: 180, height: 180, background: "radial-gradient(circle,rgba(28,171,226,0.15),transparent 70%)", pointerEvents: "none" }} />
+
+        {/* Icon */}
+        <div style={{ width: 60, height: 60, borderRadius: 12, background: "rgba(28,171,226,0.15)", border: "1.5px solid rgba(28,171,226,0.35)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.8rem", flexShrink: 0 }}>🩺</div>
+
+        {/* Text */}
+        <div style={{ flex: 1, minWidth: 260 }}>
+          <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#1CABE2", marginBottom: "0.4rem" }}>Global Ultrasound Institute · GUSI</div>
+          <div style={{ fontSize: "1.15rem", fontWeight: 800, color: "#fff", lineHeight: 1.25, letterSpacing: "-0.015em", marginBottom: "0.5rem" }}>
+            The training that closes the gap exists today.
+          </div>
+          <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.7)", lineHeight: 1.7, margin: 0 }}>
+            GUSI trains physicians, nurses, midwives, and community health workers in Point-of-Care Ultrasound — the technology that detects the conditions killing mothers and babies before they become emergencies.
+            OB POCUS · Pediatric POCUS · Primary Care POCUS · Online &amp; in-person.
+          </p>
+        </div>
+
+        {/* Links */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.65rem", flexShrink: 0 }}>
+          <a href="https://globalultrasoundinstitute.com/product/obstetrics-pocus-essentials-course/" target="_blank" rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.35rem", background: "#1CABE2", borderRadius: 8, textDecoration: "none", color: "#fff", fontWeight: 700, fontSize: "0.85rem", letterSpacing: "0.01em", whiteSpace: "nowrap" }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            OB POCUS Essentials →
+          </a>
+          <a href="https://globalultrasoundinstitute.com/product/pediatric-pocus-course/" target="_blank" rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.35rem", background: "rgba(28,171,226,0.12)", border: "1px solid rgba(28,171,226,0.4)", borderRadius: 8, textDecoration: "none", color: "#5DCCF5", fontWeight: 600, fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a4 4 0 014-4h10a4 4 0 014 4v2"/></svg>
+            Pediatric POCUS →
+          </a>
+          <a href="https://globalultrasoundinstitute.com/global-health/" target="_blank" rel="noopener noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.7rem 1.35rem", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 8, textDecoration: "none", color: "rgba(255,255,255,0.75)", fontWeight: 600, fontSize: "0.85rem", whiteSpace: "nowrap" }}>
+            🌍 GUSI Global Health Initiatives
+          </a>
+        </div>
+      </div>
+
+      {/* "What POCUS detects" inline fact strip */}
+      <div style={{ marginTop: "1.25rem", background: "#fff", border: "1px solid #D0E8F5", borderRadius: 10, padding: "1.1rem 1.5rem", display: "flex", gap: "0", flexWrap: "wrap" }}>
+        <div style={{ fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em", color: "#1CABE2", width: "100%", marginBottom: "0.75rem" }}>What a trained provider can detect with a portable ultrasound device</div>
+        {[
+          { icon: "🩸", label: "Placenta previa" },
+          { icon: "🔄", label: "Malpresentation" },
+          { icon: "👥", label: "Twin pregnancy" },
+          { icon: "📉", label: "Fetal growth restriction" },
+          { icon: "⚡", label: "Pre-eclampsia markers" },
+          { icon: "🫁", label: "Childhood pneumonia" },
+          { icon: "💉", label: "Internal bleeding" },
+          { icon: "🧠", label: "Hydrocephalus" },
+        ].map(({ icon, label }) => (
+          <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.4rem", padding: "0.35rem 0.85rem 0.35rem 0", marginRight: "0.75rem", marginBottom: "0.4rem" }}>
+            <span style={{ fontSize: "0.9rem" }}>{icon}</span>
+            <span style={{ fontSize: "0.78rem", color: "#2a3f50", fontWeight: 600 }}>{label}</span>
+            <span style={{ width: 1, height: 12, background: "#D0E8F5", marginLeft: "0.75rem" }} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
