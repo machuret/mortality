@@ -100,7 +100,7 @@ export default function RankingsTable() {
                   <td style={{ padding: "1rem 1.25rem", textAlign: "center", fontFamily: "'Roboto Mono',monospace", fontSize: "1rem", fontWeight: 700, color: rankColor }}>{rank}</td>
                   <td style={{ padding: "1rem 1.25rem", verticalAlign: "middle" }}>
                     <Link href={`/country/${c.slug}`} style={{ display: "flex", alignItems: "center", gap: "0.9rem", textDecoration: "none" }}>
-                      <span style={{ fontSize: "1.5rem", flexShrink: 0 }}>{c.flag}</span>
+                      <span className="flag-emoji" style={{ fontSize: "1.5rem", flexShrink: 0 }}>{c.flag}</span>
                       <div>
                         <div style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text)" }}>{c.name}</div>
                         <div style={{ fontSize: "0.72rem", color: "#1CABE2", marginTop: "0.1rem", fontWeight: 500 }}>View analysis →</div>

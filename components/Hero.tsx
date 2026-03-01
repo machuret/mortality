@@ -109,9 +109,9 @@ export default function Hero() {
             >
               <div style={{ display: "flex" }}>
                 <div style={{ width: 4, background: "#1CABE2", flexShrink: 0 }} />
-                <div style={{ padding: "1.3rem 1.5rem", flex: 1 }}>
+                <div style={{ padding: "1.3rem 1.5rem", flex: 1, textAlign: "center" }}>
                   <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#5DCCF5", marginBottom: "0.6rem" }}>Child Mortality · Under 5</div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.85rem", marginBottom: "0.9rem" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center", gap: "0.85rem", marginBottom: "0.9rem" }}>
                     <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>4.8M</span>
                     <span style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>deaths in 2023</span>
                   </div>
