@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { DATA, AVG_INF, AVG_MAT, MAX_INF, MAX_MAT } from "@/lib/data";
 
 type RankMode = "infant" | "maternal";
@@ -41,7 +42,7 @@ export default function RankingsTable() {
       {/* Top bar */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1.5rem", flexWrap: "wrap", gap: "0.75rem" }}>
         <p style={{ fontSize: "0.88rem", color: "var(--text-muted)" }}>
-          Ranked from highest to lowest · Click a row to jump to map · World average shown for reference
+          Ranked from highest to lowest · Click a row to view full country analysis · World average shown for reference
         </p>
         <div style={{ display: "flex", border: "1.5px solid var(--border2)", borderRadius: 6, overflow: "hidden", flexShrink: 0 }}>
           {(["infant", "maternal"] as RankMode[]).map(m => (
@@ -91,19 +92,20 @@ export default function RankingsTable() {
               const valFmt = mode === "infant" ? val.toFixed(1) : val.toLocaleString();
 
               return (
-                <tr key={c.id} onClick={scrollToMap}
+                <tr key={c.id}
                   style={{ borderBottom: "1px solid var(--border)", cursor: "pointer", transition: "background 0.15s" }}
                   onMouseOver={e => (e.currentTarget as HTMLTableRowElement).style.background = "var(--surface)"}
                   onMouseOut={e => (e.currentTarget as HTMLTableRowElement).style.background = ""}
                 >
                   <td style={{ padding: "1rem 1.25rem", textAlign: "center", fontFamily: "'Roboto Mono',monospace", fontSize: "1rem", fontWeight: 700, color: rankColor }}>{rank}</td>
                   <td style={{ padding: "1rem 1.25rem", verticalAlign: "middle" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.9rem" }}>
+                    <Link href={`/country/${c.slug}`} style={{ display: "flex", alignItems: "center", gap: "0.9rem", textDecoration: "none" }}>
                       <span style={{ fontSize: "1.5rem", flexShrink: 0 }}>{c.flag}</span>
                       <div>
                         <div style={{ fontSize: "1rem", fontWeight: 600, color: "var(--text)" }}>{c.name}</div>
+                        <div style={{ fontSize: "0.72rem", color: "#1CABE2", marginTop: "0.1rem", fontWeight: 500 }}>View analysis →</div>
                       </div>
-                    </div>
+                    </Link>
                   </td>
                   <td style={{ padding: "1rem 1.25rem", fontSize: "0.85rem", color: "var(--text-muted)", verticalAlign: "middle" }}>{c.region}</td>
                   <td style={{ padding: "1rem 1.25rem", textAlign: "right", fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: rc, verticalAlign: "middle" }}>{valFmt}</td>
