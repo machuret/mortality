@@ -77,40 +77,6 @@ export default function CountryCarousel() {
     };
   }, [emblaApi, startAutoplay, stopAutoplay]);
 
-  // Stable Unsplash photo IDs per country — same map as country page hero
-  const COUNTRY_PHOTOS: Record<string, string> = {
-    afghanistan:           "photo-1601597111158-2fceff292cdc",
-    mali:                  "photo-1516026672322-bc52d61a55d5",
-    somalia:               "photo-1504198453767-d5f7b3c3f6b5",
-    "central-african-rep": "photo-1547471080-7cc2caa01a7e",
-    chad:                  "photo-1508193638397-1c4234db14d8",
-    "sierra-leone":        "photo-1568702846914-96b305d2aaeb",
-    niger:                 "photo-1504701954957-2010ec3bcec1",
-    guinea:                "photo-1578662996442-48f60103fc96",
-    "south-sudan":         "photo-1580060839134-75a5edca2e99",
-    nigeria:               "photo-1648023199223-25d3622bcb13",
-    "guinea-bissau":       "photo-1516026672322-bc52d61a55d5",
-    lesotho:               "photo-1523805009345-7448845a9e53",
-    mozambique:            "photo-1516026672322-bc52d61a55d5",
-    "burkina-faso":        "photo-1547471080-7cc2caa01a7e",
-    angola:                "photo-1518009007177-707f97947483",
-    benin:                 "photo-1583079091703-911961c927af",
-    mauritania:            "photo-1508193638397-1c4234db14d8",
-    cameroon:              "photo-1547471080-7cc2caa01a7e",
-    "cote-divoire":        "photo-1578662996442-48f60103fc96",
-    "dr-congo":            "photo-1547471080-7cc2caa01a7e",
-    liberia:               "photo-1498903014773-69e9dacb1063",
-    uganda:                "photo-1580060839134-75a5edca2e99",
-    "equatorial-guinea":   "photo-1547471080-7cc2caa01a7e",
-    tanzania:              "photo-1516026672322-bc52d61a55d5",
-    "rep-of-congo":        "photo-1547471080-7cc2caa01a7e",
-    ethiopia:              "photo-1580060839134-75a5edca2e99",
-    madagascar:            "photo-1573843981267-be1999ff37cd",
-    malawi:                "photo-1516026672322-bc52d61a55d5",
-    sudan:                 "photo-1508193638397-1c4234db14d8",
-    haiti:                 "photo-1559827260-dc66d52bef19",
-  };
-
   // Build items — duplicate the list so the loop feels seamless
   const items = [...DATA, ...DATA];
 
@@ -144,8 +110,7 @@ export default function CountryCarousel() {
             const births = BIRTHS_ESTIMATE[country.slug] ?? 500_000;
             const annualChildDeaths = Math.round((country.infant / 1000) * births);
             const annualMaternalDeaths = Math.round((country.maternal / 100000) * births);
-            const photoId = COUNTRY_PHOTOS[country.slug] ?? "photo-1547471080-7cc2caa01a7e";
-            const photoUrl = `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=400&h=300&q=80`;
+            const flagUrl = `https://flagcdn.com/w640/${country.iso2}.png`;
 
             return (
               <div
@@ -171,30 +136,20 @@ export default function CountryCarousel() {
                       (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 16px rgba(28,171,226,0.07)";
                     }}
                   >
-                    {/* Country photo */}
-                    <div style={{ position: "relative", height: 160, overflow: "hidden", background: "#1a2e3b" }}>
+                    {/* Flag as full card image */}
+                    <div style={{ position: "relative", height: 160, overflow: "hidden", background: "#e8eef3" }}>
                       <img
-                        src={photoUrl}
-                        alt={country.name}
+                        src={flagUrl}
+                        alt={`Flag of ${country.name}`}
                         loading="lazy"
-                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "saturate(0.85) brightness(0.82)" }}
+                        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                       />
-                      {/* Flag overlay */}
-                      <div style={{ position: "absolute", top: 10, left: 10 }}>
-                        <img
-                          src={`https://flagcdn.com/w40/${country.iso2}.png`}
-                          alt={`Flag of ${country.name}`}
-                          width={40}
-                          height={27}
-                          style={{ borderRadius: 3, boxShadow: "0 2px 8px rgba(0,0,0,0.5)", display: "block" }}
-                        />
-                      </div>
                       {/* Region pill */}
-                      <div style={{ position: "absolute", top: 10, right: 10, background: "rgba(0,20,40,0.7)", backdropFilter: "blur(4px)", padding: "0.18rem 0.55rem", borderRadius: 20, fontSize: "0.6rem", fontWeight: 700, color: "rgba(255,255,255,0.8)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
+                      <div style={{ position: "absolute", top: 10, right: 10, background: "rgba(0,20,40,0.62)", backdropFilter: "blur(4px)", padding: "0.18rem 0.55rem", borderRadius: 20, fontSize: "0.6rem", fontWeight: 700, color: "rgba(255,255,255,0.9)", textTransform: "uppercase", letterSpacing: "0.1em" }}>
                         {country.region}
                       </div>
-                      {/* Gradient overlay */}
-                      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 60, background: "linear-gradient(to top,rgba(0,15,35,0.85),transparent)" }} />
+                      {/* Subtle bottom fade into card body */}
+                      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 50, background: "linear-gradient(to top,rgba(255,255,255,0.9),transparent)" }} />
                     </div>
 
                     {/* Card body */}
