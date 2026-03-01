@@ -821,15 +821,33 @@ function TechnologyEducationSection({ country }: { country: Country }) {
         {/* Implementation Plan */}
         <div style={{ background: "#fff", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(28,171,226,0.06)" }}>
           <div style={{ padding: "0.85rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)" }}>
-            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🗺️ Deployment Roadmap for {country.name}</span>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🗺️ Our Plan to Bring POCUS to {country.name}</span>
           </div>
           <div style={{ padding: "1.4rem" }}>
-            <ol style={{ margin: 0, paddingLeft: "1.2rem", color: "#111", lineHeight: 1.9, fontSize: "1.02rem" }}>
-              <li style={{ marginBottom: "0.5rem" }}><strong>Baseline assessment</strong> — map existing facilities, referral pathways, blood supply, and available midwives, nurses, and physicians who could be trained.</li>
-              <li style={{ marginBottom: "0.5rem" }}><strong>Provider training</strong> — enrol local champions in GUSI&apos;s OB POCUS Essentials + Pediatric POCUS courses. Certify a core group to train others.</li>
-              <li style={{ marginBottom: "0.5rem" }}><strong>Device procurement</strong> — select appropriate portable handheld devices based on power infrastructure, connectivity, and budget (see brands below).</li>
-              <li style={{ marginBottom: "0.5rem" }}><strong>Protocols &amp; referral integration</strong> — define what to scan, what findings trigger referral, and how to document scans at the point of care.</li>
-              <li><strong>Quality assurance</strong> — regular image review sessions, outcomes tracking, and refresher training to maintain competency.</li>
+            <p style={{ margin: "0 0 1.1rem", fontSize: "1rem", color: "#2c4a5e", lineHeight: 1.8 }}>
+              Our goal is to partner with <strong>GUSI (Global Ultrasound Institute)</strong> and leading portable ultrasound manufacturers to place life-saving diagnostic tools directly in the hands of trained local providers across {country.name} — so that dangerous complications are caught early, not discovered too late.
+            </p>
+            <ol style={{ margin: 0, paddingLeft: "1.25rem", color: "#111", lineHeight: 1.0, fontSize: "0.99rem", display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+              <li>
+                <strong style={{ color: "#0E6EA3" }}>Start with the ground truth.</strong>
+                <span style={{ color: "#333", lineHeight: 1.75, display: "block", marginTop: "0.2rem" }}>Our plan begins by mapping what already exists — facilities, referral pathways, blood supply, and the midwives, nurses, and physicians who are closest to mothers at the moment of crisis.</span>
+              </li>
+              <li>
+                <strong style={{ color: "#0E6EA3" }}>Train local champions through GUSI.</strong>
+                <span style={{ color: "#333", lineHeight: 1.75, display: "block", marginTop: "0.2rem" }}>We enrol a core group of local providers in GUSI&apos;s OB POCUS Essentials and Pediatric POCUS courses — then certify them to train others, so the knowledge multiplies without depending on outside experts indefinitely.</span>
+              </li>
+              <li>
+                <strong style={{ color: "#0E6EA3" }}>Put the right device in the right hands.</strong>
+                <span style={{ color: "#333", lineHeight: 1.75, display: "block", marginTop: "0.2rem" }}>We partner with portable ultrasound brands — Butterfly iQ+, Philips Lumify, GE Vscan Air — to source devices suited to {country.name}&apos;s power infrastructure, connectivity, and budget. No unnecessary complexity, just what works in the field.</span>
+              </li>
+              <li>
+                <strong style={{ color: "#0E6EA3" }}>Build a referral system around what the scan finds.</strong>
+                <span style={{ color: "#333", lineHeight: 1.75, display: "block", marginTop: "0.2rem" }}>A scan without a clear next step saves no one. Our plan defines exactly what to look for, which findings require immediate referral, and how to document everything at the point of care — so no warning sign is lost in translation.</span>
+              </li>
+              <li>
+                <strong style={{ color: "#0E6EA3" }}>Sustain it through ongoing quality assurance.</strong>
+                <span style={{ color: "#333", lineHeight: 1.75, display: "block", marginTop: "0.2rem" }}>Regular image review sessions, outcomes tracking, and refresher training keep skills sharp and standards high — turning a one-time intervention into a durable change in how care is delivered.</span>
+              </li>
             </ol>
           </div>
         </div>
