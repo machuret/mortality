@@ -10,10 +10,11 @@ export default function Footer() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1rem" }}>
               <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#1CABE2" }} />
-              <span style={{ fontSize: "1.1rem", fontWeight: 800, color: "#ffffff", letterSpacing: "0.02em" }}>Every Life Counts</span>
+              <span style={{ fontSize: "1.1rem", fontWeight: 800, color: "#ffffff", letterSpacing: "-0.01em", fontFamily: "'Montserrat',sans-serif" }}>Stop Maternal Mortality</span>
             </div>
             <p style={{ fontSize: "0.92rem", color: "rgba(255,255,255,0.82)", lineHeight: 1.85, fontWeight: 400, maxWidth: 480 }}>
-              This tracker uses real-time estimates based on annual UN data to visualise the scale of preventable child and maternal deaths worldwide. The main counter starts from January 1, 2026 at midnight and adds one child death every 6 seconds — the statistical reality.
+              This tracker uses real-time estimates based on annual UN data to visualise the scale of preventable child and maternal deaths worldwide. The main counter starts from January 1, 2026 at midnight and adds one child death every 6 seconds — the statistical reality. Visit us at{" "}
+              <a href="https://stopmaternalmortality.com" style={{ color: "#1CABE2", textDecoration: "none", fontWeight: 600 }}>stopmaternalmortality.com</a>
             </p>
             <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", marginTop: "0.75rem", fontStyle: "italic" }}>
               Data is for educational and advocacy purposes only.
@@ -44,7 +45,7 @@ export default function Footer() {
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", padding: "1rem 2rem" }}>
         <div style={{ maxWidth: 1340, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem" }}>
           <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.5)" }}>
-            © 2026 Every Life Counts — Educational use only
+            © 2026 <a href="https://stopmaternalmortality.com" style={{ color: "#1CABE2", textDecoration: "none" }}>stopmaternalmortality.com</a> — Educational use only
           </span>
           <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.5)" }}>
             Built with WHO · UNICEF · UN IGME 2024 data

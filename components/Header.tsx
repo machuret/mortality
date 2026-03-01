@@ -47,10 +47,12 @@ export default function Header() {
       <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "0.55rem 2rem", display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 1340, margin: "0 auto" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
           <div style={{ width: 32, height: 32, background: "#1CABE2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", flexShrink: 0, animation: "icon-pulse 2.5s ease-out infinite" }}>
-            🌍
+            🩺
           </div>
-          <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>Every Life Counts</span>
-          <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.65)", textTransform: "uppercase", letterSpacing: "0.1em", marginLeft: "0.5rem", fontWeight: 500 }}>Global Mortality Tracker</span>
+          <div>
+            <span style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", letterSpacing: "-0.01em", fontFamily: "'Montserrat',sans-serif" }}>Stop Maternal Mortality</span>
+            <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.45)", letterSpacing: "0.04em", marginLeft: "0.6rem", fontWeight: 400 }}>stopmaternalmortality.com</span>
+          </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <div style={{ fontSize: "0.62rem", color: "#4CAF50", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.35rem" }}>

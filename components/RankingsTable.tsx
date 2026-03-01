@@ -45,7 +45,7 @@ export default function RankingsTable() {
   const unit = mode === "infant" ? "per 1,000 births" : "per 100,000 births";
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ fontFamily: "'Open Sans', sans-serif" }}>
 
       {/* ── Card shell ── */}
       <div style={{ background: "#fff", border: "1px solid #D0E8F5", borderRadius: 16, overflow: "hidden", boxShadow: "0 4px 32px rgba(28,171,226,0.08)" }}>
@@ -102,10 +102,10 @@ export default function RankingsTable() {
         }}>
           <div style={{ fontSize: "0.75rem", color: "#8AAEC4", fontWeight: 700 }}>—</div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.65rem" }}>
-            <span style={{ fontSize: "1.2rem" }}>🌍</span>
-            <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "#1CABE2" }}>World Average</span>
+            <span style={{ fontSize: "1.1rem" }}>🌍</span>
+            <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "#1CABE2", fontFamily: "'Open Sans',sans-serif" }}>World Average</span>
           </div>
-          <div style={{ fontSize: "0.82rem", color: "#8AAEC4", fontStyle: "italic" }}>Global</div>
+          <div style={{ fontSize: "0.82rem", color: "#8AAEC4", fontStyle: "italic", fontFamily: "'Open Sans',sans-serif" }}>Global</div>
           <div style={{ textAlign: "right", fontFamily: "'Roboto Mono',monospace", fontSize: "0.95rem", fontWeight: 700, color: "#1CABE2", paddingRight: "0.5rem" }}>
             {mode === "infant" ? AVG_INF : AVG_MAT.toLocaleString()}
           </div>
@@ -170,15 +170,21 @@ export default function RankingsTable() {
 
                   {/* Country */}
                   <Link href={`/country/${c.slug}`} style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none" }}>
-                    <span className="flag-emoji" style={{ fontSize: "1.55rem", flexShrink: 0, lineHeight: 1 }}>{c.flag}</span>
+                    <img
+                      src={`https://flagcdn.com/w40/${c.iso2}.png`}
+                      alt={c.name}
+                      width={32}
+                      height={22}
+                      style={{ borderRadius: 3, boxShadow: "0 1px 4px rgba(0,0,0,0.2)", objectFit: "cover", flexShrink: 0 }}
+                    />
                     <div>
-                      <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1a2e3b", letterSpacing: "-0.01em" }}>{c.name}</div>
+                      <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#1a2e3b", letterSpacing: "-0.01em", fontFamily: "'Open Sans',sans-serif" }}>{c.name}</div>
                       <div style={{ fontSize: "0.7rem", color: "#1CABE2", fontWeight: 600, marginTop: "0.08rem" }}>View full analysis →</div>
                     </div>
                   </Link>
 
                   {/* Region */}
-                  <div style={{ fontSize: "0.8rem", color: "#6B8FA8", fontWeight: 500 }}>{c.region}</div>
+                  <div style={{ fontSize: "0.8rem", color: "#6B8FA8", fontWeight: 500, fontFamily: "'Open Sans',sans-serif" }}>{c.region}</div>
 
                   {/* Rate */}
                   <div style={{ textAlign: "right", paddingRight: "0.5rem" }}>

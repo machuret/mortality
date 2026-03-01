@@ -70,8 +70,41 @@ export default function CountryPageClient({ country, analysis }: Props) {
   const prevCountry = DATA[DATA.findIndex(c => c.slug === country.slug) - 1] ?? null;
   const nextCountry = DATA[DATA.findIndex(c => c.slug === country.slug) + 1] ?? null;
 
-  // Country-specific background image via Unsplash featured
-  const bgImage = `https://source.unsplash.com/featured/1600x900/?${encodeURIComponent(country.name)},landscape,people`;
+  // Curated stable Unsplash photo IDs per country (landscape/people/culture)
+  const COUNTRY_PHOTOS: Record<string, string> = {
+    afghanistan:         "photo-1601597111158-2fceff292cdc", // Afghan landscape
+    mali:                "photo-1516026672322-bc52d61a55d5", // West Africa market
+    somalia:             "photo-1504198453767-d5f7b3c3f6b5", // East Africa coast
+    "central-african-rep": "photo-1547471080-7cc2caa01a7e", // Central Africa forest
+    chad:                "photo-1508193638397-1c4234db14d8", // Sahel landscape
+    "sierra-leone":      "photo-1568702846914-96b305d2aaeb", // West Africa village
+    niger:               "photo-1504701954957-2010ec3bcec1", // Niger desert/landscape
+    guinea:              "photo-1578662996442-48f60103fc96", // West Africa landscape
+    "south-sudan":       "photo-1580060839134-75a5edca2e99", // East Africa savanna
+    nigeria:             "photo-1595435934249-5df7ed86e1c0", // Lagos/Nigeria urban
+    "guinea-bissau":     "photo-1516026672322-bc52d61a55d5", // West Africa
+    lesotho:             "photo-1523805009345-7448845a9e53", // Southern Africa mountains
+    mozambique:          "photo-1516026672322-bc52d61a55d5", // Southern Africa coast
+    "burkina-faso":      "photo-1547471080-7cc2caa01a7e", // West Africa village
+    angola:              "photo-1571019613454-1cb2f99b2d8b", // Angola landscape
+    benin:               "photo-1568702846914-96b305d2aaeb", // West Africa
+    mauritania:          "photo-1508193638397-1c4234db14d8", // Desert/Sahara
+    cameroon:            "photo-1547471080-7cc2caa01a7e", // Central Africa
+    "cote-divoire":      "photo-1578662996442-48f60103fc96", // West Africa
+    "dr-congo":          "photo-1547471080-7cc2caa01a7e", // Congo rainforest
+    liberia:             "photo-1568702846914-96b305d2aaeb", // West Africa
+    uganda:              "photo-1580060839134-75a5edca2e99", // East Africa/Uganda
+    "equatorial-guinea": "photo-1547471080-7cc2caa01a7e", // Central Africa
+    tanzania:            "photo-1516026672322-bc52d61a55d5", // Tanzania/Kilimanjaro
+    "rep-of-congo":      "photo-1547471080-7cc2caa01a7e", // Central Africa
+    ethiopia:            "photo-1580060839134-75a5edca2e99", // Ethiopia highlands
+    madagascar:          "photo-1573843981267-be1999ff37cd", // Madagascar landscape
+    malawi:              "photo-1516026672322-bc52d61a55d5", // Southern Africa lake
+    sudan:               "photo-1508193638397-1c4234db14d8", // Sudan/North Africa
+    haiti:               "photo-1559827260-dc66d52bef19", // Caribbean/Haiti
+  };
+  const photoId = COUNTRY_PHOTOS[country.slug] ?? "photo-1547471080-7cc2caa01a7e";
+  const bgImage = `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=1600&q=80`;
 
   return (
     <div style={{ background: "#F5F9FC", minHeight: "100vh", fontFamily: "'Roboto',sans-serif" }}>
@@ -81,8 +114,8 @@ export default function CountryPageClient({ country, analysis }: Props) {
         <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "0.55rem 2rem", display: "flex", alignItems: "center", justifyContent: "space-between", maxWidth: 1340, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
             <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.6rem", textDecoration: "none" }}>
-              <div style={{ width: 30, height: 30, background: "#1CABE2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", flexShrink: 0 }}>🌍</div>
-              <span style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff" }}>Every Life Counts</span>
+              <div style={{ width: 30, height: 30, background: "#1CABE2", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.9rem", flexShrink: 0 }}>🩺</div>
+              <span style={{ fontSize: "0.9rem", fontWeight: 800, color: "#fff", fontFamily: "'Montserrat',sans-serif" }}>Stop Maternal Mortality</span>
             </Link>
             <span style={{ color: "rgba(255,255,255,0.25)" }}>›</span>
             <span style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)" }}>Countries</span>
