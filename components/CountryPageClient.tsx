@@ -185,10 +185,10 @@ export default function CountryPageClient({ country, analysis }: Props) {
           position: "absolute", inset: 0, zIndex: 0,
           backgroundImage: `url('${bgImage}')`,
           backgroundSize: "cover", backgroundPosition: "center",
-          filter: "saturate(0.6) brightness(0.4)",
+          filter: "saturate(0.6) brightness(0.44)",
         }} />
         {/* Dark gradient overlay */}
-        <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(105deg,rgba(0,12,30,0.92) 0%,rgba(0,20,45,0.82) 50%,rgba(0,15,35,0.65) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, zIndex: 1, background: "linear-gradient(105deg,rgba(0,12,30,0.88) 0%,rgba(0,20,45,0.78) 50%,rgba(0,15,35,0.6) 100%)" }} />
 
         <div className="cp-hero-grid" style={{ position: "relative", zIndex: 2, maxWidth: 1340, margin: "0 auto", padding: "4rem 2rem", width: "100%", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: "4rem", alignItems: "center" }}>
 
@@ -372,6 +372,9 @@ export default function CountryPageClient({ country, analysis }: Props) {
 
         {/* ── POCUS CALCULATOR ── */}
         <POCUSCalculator country={country} />
+
+        {/* ── TECHNOLOGY & EDUCATION ── */}
+        <TechnologyEducationSection country={country} />
 
         {/* ── NAVIGATION ── */}
         <div className="cp-nav-bar" style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "2px solid #D0E8F5", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", flexWrap: "wrap" }}>
@@ -665,20 +668,20 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
 
       {/* "What POCUS detects" inline fact strip */}
       <div style={{ marginTop: "1.25rem", background: "#fff", border: "1px solid #D0E8F5", borderRadius: 10, padding: "1.1rem 1.5rem", display: "flex", gap: "0", flexWrap: "wrap" }}>
-        <div style={{ fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", color: "#1CABE2", width: "100%", marginBottom: "1rem" }}>What a trained provider can detect with a portable ultrasound device</div>
+        <div style={{ fontSize: "1rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#0E6EA3", width: "100%", marginBottom: "1rem", fontFamily: "'Montserrat',sans-serif" }}>What a trained provider can detect with a portable ultrasound device</div>
         {[
           { icon: "🩸", label: "Placenta previa" },
           { icon: "🔄", label: "Malpresentation" },
           { icon: "👥", label: "Twin pregnancy" },
           { icon: "📉", label: "Fetal growth restriction" },
           { icon: "⚡", label: "Pre-eclampsia markers" },
-          { icon: "�됁", label: "Childhood pneumonia" },
+          { icon: "🫁", label: "Childhood pneumonia" },
           { icon: "💉", label: "Internal bleeding" },
           { icon: "🧠", label: "Hydrocephalus" },
         ].map(({ icon, label }) => (
           <div key={label} style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.45rem 1rem 0.45rem 0", marginRight: "0.5rem", marginBottom: "0.5rem" }}>
-            <span style={{ fontSize: "1.1rem" }}>{icon}</span>
-            <span style={{ fontSize: "0.95rem", color: "#111", fontWeight: 600 }}>{label}</span>
+            <span style={{ fontSize: "1.25rem" }}>{icon}</span>
+            <span style={{ fontSize: "1.05rem", color: "#111", fontWeight: 600 }}>{label}</span>
             <span style={{ width: 1, height: 14, background: "#D0E8F5", marginLeft: "0.75rem" }} />
           </div>
         ))}
@@ -733,6 +736,151 @@ function CauseBar({ label, pct, color }: { label: string; pct: number; color: st
       </div>
       <div style={{ height: 8, background: "#EBF5FB", borderRadius: 4, overflow: "hidden" }}>
         <div style={{ height: "100%", width: `${pct}%`, background: color, borderRadius: 4, transition: "width 0.8s ease-out", opacity: 0.85 }} />
+      </div>
+    </div>
+  );
+}
+
+function TechnologyEducationSection({ country }: { country: Country }) {
+  const brands = [
+    {
+      name: "Butterfly iQ+",
+      notes: "Single-probe ultrasound with multiple presets; strong training ecosystem.",
+      url: "https://www.butterflynetwork.com/",
+    },
+    {
+      name: "Philips Lumify",
+      notes: "Mobile ultrasound with app-based workflow; widely used for POCUS education.",
+      url: "https://www.philips.com/lumify",
+    },
+    {
+      name: "GE Vscan Air",
+      notes: "Wireless handheld; rapid bedside scanning; good for OB/FAST-style workflows.",
+      url: "https://www.gehealthcare.com/products/ultrasound/portable-ultrasound/vscan-air",
+    },
+    {
+      name: "Clarius",
+      notes: "Wireless handheld; strong image quality; configurable presets.",
+      url: "https://clarius.com/",
+    },
+  ];
+
+  const riskRows: Array<{ risk: string; mechanism: string; expectedReductionPct: string; evidence: string }> = [
+    {
+      risk: "Maternal haemorrhage",
+      mechanism: "Earlier detection of placenta previa / accreta risk and triage planning (referral + blood readiness).",
+      expectedReductionPct: "TBD",
+      evidence: "TBD (source-backed)"
+    },
+    {
+      risk: "Obstructed labour",
+      mechanism: "Detect malpresentation, multiple gestation, and estimate fetal position to route to skilled care.",
+      expectedReductionPct: "TBD",
+      evidence: "TBD (source-backed)"
+    },
+    {
+      risk: "Eclampsia complications",
+      mechanism: "Risk stratification + referral workflows (POCUS is supportive, not a substitute for MgSO₄ / BP control).",
+      expectedReductionPct: "TBD",
+      evidence: "TBD (source-backed)"
+    },
+    {
+      risk: "Neonatal death at birth",
+      mechanism: "Identify high-risk pregnancies earlier and improve delivery location planning.",
+      expectedReductionPct: "TBD",
+      evidence: "TBD (source-backed)"
+    },
+  ];
+
+  return (
+    <div style={{ marginTop: "3rem" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.75rem" }}>
+        <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E4D8C,#1CABE2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(28,171,226,0.3)" }}>🧠</div>
+        <div>
+          <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#1CABE2", marginBottom: "0.2rem" }}>Technology &amp; Education</div>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif" }}>
+            A Practical Plan to Bring POCUS to {country.name}
+          </h2>
+        </div>
+        <div style={{ flex: 1, height: 2, background: "linear-gradient(90deg,rgba(28,171,226,0.4),transparent)", borderRadius: 1 }} />
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "1.25rem" }}>
+        <div style={{ background: "#fff", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(28,171,226,0.06)" }}>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🗺️ Implementation Plan</span>
+          </div>
+          <div style={{ padding: "1.4rem" }}>
+            <ol style={{ margin: 0, paddingLeft: "1.2rem", color: "#111", lineHeight: 1.85, fontSize: "1.02rem" }}>
+              <li><strong>Baseline assessment:</strong> facilities, referral paths, blood access, and who will scan.</li>
+              <li><strong>Training:</strong> OB POCUS essentials + competency checks + local champions.</li>
+              <li><strong>Devices + maintenance:</strong> procurement, cleaning, charging, spare parts, and calibration plan.</li>
+              <li><strong>Protocols:</strong> what to scan, when to refer, and how to document.</li>
+              <li><strong>Quality assurance:</strong> periodic image review + outcomes tracking.</li>
+            </ol>
+            <p style={{ marginTop: "0.9rem", fontSize: "0.92rem", color: "#4a6880", lineHeight: 1.7 }}>
+              Note: This section is a deployment plan. Clinical outcomes and % reductions below will be filled only with peer-reviewed, source-backed evidence.
+            </p>
+          </div>
+        </div>
+
+        <div style={{ background: "#fff", border: "1px solid rgba(22,163,74,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(22,163,74,0.06)" }}>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(22,163,74,0.07)", borderBottom: "1px solid rgba(22,163,74,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#15803D", fontFamily: "'Montserrat',sans-serif" }}>🧳 Portable Ultrasound Brands</span>
+          </div>
+          <div style={{ padding: "1.4rem", display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+            {brands.map((b) => (
+              <div key={b.name} style={{ border: "1px solid #D0E8F5", borderRadius: 10, padding: "0.95rem 1rem", background: "#FAFCFE" }}>
+                <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "0.75rem", flexWrap: "wrap" }}>
+                  <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif" }}>{b.name}</div>
+                  <a href={b.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.9rem", color: "#1CABE2", textDecoration: "none", fontWeight: 700 }}>
+                    Website →
+                  </a>
+                </div>
+                <div style={{ marginTop: "0.35rem", fontSize: "0.95rem", color: "#111", lineHeight: 1.75 }}>{b.notes}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ gridColumn: "1 / -1", background: "#fff", border: "1px solid rgba(239,154,154,0.25)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(239,154,154,0.06)" }}>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(239,154,154,0.08)", borderBottom: "1px solid rgba(239,154,154,0.2)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#C0392B", fontFamily: "'Montserrat',sans-serif" }}>📉 Risk Reduction (Source-Backed)</span>
+          </div>
+          <div style={{ padding: "1.25rem 1.25rem 1.4rem" }}>
+            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+              <table style={{ width: "100%", borderCollapse: "separate", borderSpacing: 0, minWidth: 820, fontFamily: "'Open Sans',sans-serif" }}>
+                <thead>
+                  <tr>
+                    {[
+                      "Risk / Complication",
+                      "How POCUS helps",
+                      "Estimated reduction",
+                      "Evidence source",
+                    ].map((h, i) => (
+                      <th key={h} style={{ textAlign: "left", padding: "0.8rem 0.9rem", fontSize: "0.78rem", fontWeight: 800, letterSpacing: "0.12em", textTransform: "uppercase", color: "#4a6880", borderBottom: "2px solid #D0E8F5", background: "#F5F9FC" }}>
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {riskRows.map((r) => (
+                    <tr key={r.risk}>
+                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#111", fontWeight: 700 }}>{r.risk}</td>
+                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#111", lineHeight: 1.7 }}>{r.mechanism}</td>
+                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#C0392B", fontFamily: "'Roboto Mono',monospace", fontWeight: 800 }}>{r.expectedReductionPct}</td>
+                      <td style={{ padding: "0.85rem 0.9rem", borderBottom: "1px solid #EBF5FB", color: "#4a6880" }}>{r.evidence}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p style={{ marginTop: "0.85rem", fontSize: "0.9rem", color: "#4a6880", lineHeight: 1.7 }}>
+              If you want, tell me what evidence standard you want here (systematic reviews only vs allowing cohort/implementation studies). I’ll populate this table with citations and conservative ranges.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
