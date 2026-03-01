@@ -109,21 +109,20 @@ export default function Hero() {
             >
               <div style={{ display: "flex" }}>
                 <div style={{ width: 4, background: "#1CABE2", flexShrink: 0 }} />
-                <div style={{ padding: "1.2rem 1.4rem", flex: 1 }}>
-                  <div style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#1CABE2", marginBottom: "0.5rem" }}>Child Mortality · Under 5</div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.5rem" }}>
+                <div style={{ padding: "1.3rem 1.5rem", flex: 1 }}>
+                  <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#5DCCF5", marginBottom: "0.6rem" }}>Child Mortality · Under 5</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.85rem", marginBottom: "0.9rem" }}>
                     <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>4.8M</span>
-                    <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>deaths in 2023</span>
+                    <span style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>deaths in 2023</span>
                   </div>
-                  <div style={{ display: "flex", gap: "1.5rem" }}>
-                    <div>
-                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#5DCCF5" }}>2.3M</div>
-                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>Newborns (first 28 days)</div>
+                  <div style={{ display: "flex", gap: "0" }}>
+                    <div style={{ flex: 1, textAlign: "center", padding: "0.6rem 0.5rem", background: "rgba(93,204,245,0.07)", borderRadius: "6px 0 0 6px", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.4rem", fontWeight: 800, color: "#5DCCF5", lineHeight: 1 }}>2.3M</div>
+                      <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)", marginTop: "0.3rem", fontWeight: 500 }}>Newborns (first 28 days)</div>
                     </div>
-                    <div style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
-                    <div>
-                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#5DCCF5" }}>92%</div>
-                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>In low-income countries</div>
+                    <div style={{ flex: 1, textAlign: "center", padding: "0.6rem 0.5rem", background: "rgba(93,204,245,0.07)", borderRadius: "0 6px 6px 0" }}>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.4rem", fontWeight: 800, color: "#5DCCF5", lineHeight: 1 }}>92%</div>
+                      <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)", marginTop: "0.3rem", fontWeight: 500 }}>In low-income countries</div>
                     </div>
                   </div>
                 </div>
@@ -137,21 +136,20 @@ export default function Hero() {
             >
               <div style={{ display: "flex" }}>
                 <div style={{ width: 4, background: "#FFB74D", flexShrink: 0 }} />
-                <div style={{ padding: "1.2rem 1.4rem", flex: 1 }}>
-                  <div style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#FFB74D", marginBottom: "0.5rem" }}>Maternal Mortality · Pregnancy-Related</div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.5rem" }}>
+                <div style={{ padding: "1.3rem 1.5rem", flex: 1 }}>
+                  <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#FFB74D", marginBottom: "0.6rem" }}>Maternal Mortality · Pregnancy-Related</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.85rem", marginBottom: "0.9rem" }}>
                     <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>260K</span>
-                    <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>deaths in 2023</span>
+                    <span style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>deaths in 2023</span>
                   </div>
-                  <div style={{ display: "flex", gap: "1.5rem" }}>
-                    <div>
-                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#FFB74D" }}>70%</div>
-                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>Sub-Saharan Africa</div>
+                  <div style={{ display: "flex", gap: "0" }}>
+                    <div style={{ flex: 1, textAlign: "center", padding: "0.6rem 0.5rem", background: "rgba(255,183,77,0.07)", borderRadius: "6px 0 0 6px", borderRight: "1px solid rgba(255,255,255,0.08)" }}>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.4rem", fontWeight: 800, color: "#FFB74D", lineHeight: 1 }}>70%</div>
+                      <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)", marginTop: "0.3rem", fontWeight: 500 }}>Sub-Saharan Africa</div>
                     </div>
-                    <div style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
-                    <div>
-                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#FFB74D" }}>~1</div>
-                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>Death every 2 minutes</div>
+                    <div style={{ flex: 1, textAlign: "center", padding: "0.6rem 0.5rem", background: "rgba(255,183,77,0.07)", borderRadius: "0 6px 6px 0" }}>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.4rem", fontWeight: 800, color: "#FFB74D", lineHeight: 1 }}>~2min</div>
+                      <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)", marginTop: "0.3rem", fontWeight: 500 }}>One death every 2 min</div>
                     </div>
                   </div>
                 </div>
@@ -165,20 +163,25 @@ export default function Hero() {
             >
               <div style={{ display: "flex" }}>
                 <div style={{ width: 4, background: "#EF9A9A", flexShrink: 0 }} />
-                <div style={{ padding: "1.2rem 1.4rem", flex: 1 }}>
-                  <div style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#EF9A9A", marginBottom: "0.5rem" }}>Progress Since 2000 · Decelerating</div>
-                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.6rem" }}>
+                <div style={{ padding: "1.3rem 1.5rem", flex: 1 }}>
+                  <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#EF9A9A", marginBottom: "0.6rem" }}>Progress Since 2000 · Decelerating</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.85rem", marginBottom: "0.9rem" }}>
                     <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>–52%</span>
-                    <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>under-5 mortality reduction</span>
+                    <span style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>under-5 mortality reduction</span>
                   </div>
                   {/* Progress bar */}
-                  <div style={{ marginBottom: "0.4rem" }}>
-                    <div style={{ height: 5, background: "rgba(255,255,255,0.08)", borderRadius: 3, overflow: "hidden" }}>
-                      <div style={{ height: "100%", width: "52%", background: "linear-gradient(90deg,#EF9A9A,#C0392B)", borderRadius: 3 }} />
+                  <div>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "0.4rem" }}>
+                      <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.75)", fontWeight: 500 }}>2000 baseline</span>
+                      <span style={{ fontSize: "0.72rem", color: "#EF9A9A", fontWeight: 600 }}>Target: –67% by 2030 (SDG)</span>
                     </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.3rem" }}>
-                      <span style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.28)" }}>2000 baseline</span>
-                      <span style={{ fontSize: "0.62rem", color: "rgba(239,154,154,0.7)" }}>Target: –67% by 2030 (SDG)</span>
+                    <div style={{ height: 8, background: "rgba(255,255,255,0.1)", borderRadius: 4, overflow: "hidden", position: "relative" }}>
+                      <div style={{ height: "100%", width: "52%", background: "linear-gradient(90deg,#EF9A9A,#C0392B)", borderRadius: 4 }} />
+                      <div style={{ position: "absolute", top: 0, bottom: 0, left: "77.6%", width: 2, background: "rgba(255,255,255,0.5)" }} />
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.35rem" }}>
+                      <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.6)" }}>52% achieved</span>
+                      <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.6)" }}>15% remaining to SDG goal</span>
                     </div>
                   </div>
                 </div>
