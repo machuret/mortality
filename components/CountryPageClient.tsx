@@ -161,9 +161,16 @@ export default function CountryPageClient({ country, analysis }: Props) {
 
           {/* Left: big flag + title + summary */}
           <div style={{ display: "flex", gap: "2rem", alignItems: "flex-start" }}>
-            {/* Giant flag */}
-            <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
-              <span className="flag-emoji" style={{ fontSize: "clamp(5rem,9vw,8rem)", lineHeight: 1, filter: "drop-shadow(0 8px 24px rgba(0,0,0,0.7))" }}>{country.flag}</span>
+            {/* Giant real flag image */}
+            <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center", gap: "0.6rem" }}>
+              <img
+                src={`https://flagcdn.com/w160/${country.iso2}.png`}
+                srcSet={`https://flagcdn.com/w320/${country.iso2}.png 2x`}
+                alt={`Flag of ${country.name}`}
+                width={160}
+                height={107}
+                style={{ borderRadius: 8, boxShadow: "0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4)", display: "block", objectFit: "cover" }}
+              />
               <span style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "rgba(255,255,255,0.45)" }}>{country.region}</span>
             </div>
             <div style={{ flex: 1 }}>
@@ -171,7 +178,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
                 <span style={{ width: 22, height: 2, background: "#1CABE2", display: "inline-block" }} />
                 Birth Mortality Crisis
               </div>
-              <h1 style={{ fontSize: "clamp(1.9rem,3.8vw,3.2rem)", fontWeight: 900, color: "#fff", lineHeight: 1.08, marginBottom: "1.3rem" }}>
+              <h1 style={{ fontSize: "clamp(1.9rem,3.8vw,3.2rem)", fontWeight: 900, color: "#fff", lineHeight: 1.08, marginBottom: "1.3rem", fontFamily: "'Montserrat',sans-serif" }}>
                 Mothers &amp; Newborns<br />Dying in {country.name}<br />
                 <span style={{ color: "#5DCCF5" }}>During Childbirth</span>
               </h1>
@@ -293,7 +300,7 @@ export default function CountryPageClient({ country, analysis }: Props) {
               <div style={{ background: "#fff", border: "1px solid rgba(239,154,154,0.25)", borderRadius: 10, overflow: "hidden", boxShadow: "0 2px 12px rgba(239,154,154,0.06)" }}>
                 <div style={{ padding: "0.75rem 1.5rem", background: "rgba(239,154,154,0.08)", borderBottom: "1px solid rgba(239,154,154,0.2)", display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   <div style={{ width: 3, height: 16, background: "#EF9A9A", borderRadius: 2 }} />
-                  <span style={{ fontSize: "0.72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#1a2e3b" }}>Structural Barriers to Safe Birth in {country.name}</span>
+                  <span style={{ fontSize: "1rem", fontWeight: 700, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif" }}>Structural Barriers to Safe Birth in {country.name}</span>
                 </div>
                 <div style={{ padding: "1.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "0.75rem" }}>
                   {analysis.drivers.map((d, i) => (
@@ -313,8 +320,8 @@ export default function CountryPageClient({ country, analysis }: Props) {
               <div style={{ background: "linear-gradient(135deg,#001828,#002B4D)", border: "1px solid rgba(28,171,226,0.3)", borderRadius: 10, padding: "1.5rem 2rem", display: "flex", gap: "1.2rem", alignItems: "flex-start" }}>
                 <div style={{ width: 40, height: 40, borderRadius: 8, background: "rgba(28,171,226,0.15)", border: "1px solid rgba(28,171,226,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "1.2rem" }}>🎯</div>
                 <div>
-                  <div style={{ fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.18em", color: "#1CABE2", fontWeight: 700, marginBottom: "0.4rem" }}>SDG 3 Progress Assessment</div>
-                  <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.82)", lineHeight: 1.75 }}>{analysis.sdgNote}</p>
+                  <div style={{ fontSize: "0.95rem", color: "#1CABE2", fontWeight: 700, marginBottom: "0.4rem", fontFamily: "'Montserrat',sans-serif" }}>SDG 3 Progress Assessment</div>
+                  <p style={{ fontSize: "1.05rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.75 }}>{analysis.sdgNote}</p>
                 </div>
               </div>
             </div>
@@ -418,7 +425,7 @@ function POCUSCalculator({ country }: { country: Country }) {
         <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E4D8C,#1CABE2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(28,171,226,0.3)" }}>🧮</div>
         <div>
           <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#1CABE2", marginBottom: "0.2rem" }}>Interactive Model</div>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif" }}>
             POCUS Impact Calculator — {country.name}
           </h2>
         </div>
@@ -541,7 +548,7 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
         <div style={{ width: 44, height: 44, borderRadius: 10, background: "linear-gradient(135deg,#0E7C3A,#16A34A)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", flexShrink: 0, boxShadow: "0 4px 16px rgba(22,163,74,0.25)" }}>💡</div>
         <div>
           <div style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.2em", color: "#16A34A", marginBottom: "0.2rem" }}>Prevention &amp; Solutions</div>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 800, color: "#1a2e3b", lineHeight: 1.15, letterSpacing: "-0.02em", fontFamily: "'Montserrat',sans-serif" }}>
             How Can We Prevent This in {countryName}?
           </h2>
         </div>
@@ -553,34 +560,31 @@ function SolutionModule({ solution, countryName }: { solution: CountrySolution; 
 
         {/* Situation */}
         <div style={{ background: "#fff", border: "1px solid rgba(22,163,74,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(22,163,74,0.06)" }}>
-          <div style={{ padding: "0.75rem 1.25rem", background: "rgba(22,163,74,0.07)", borderBottom: "1px solid rgba(22,163,74,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1rem" }}>📍</span>
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#15803D" }}>The Situation</span>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(22,163,74,0.07)", borderBottom: "1px solid rgba(22,163,74,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#15803D", fontFamily: "'Montserrat',sans-serif" }}>📍 The Situation</span>
           </div>
-          <div style={{ padding: "1.25rem" }}>
-            <p style={{ fontSize: "0.92rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.situation}</p>
+          <div style={{ padding: "1.4rem" }}>
+            <p style={{ fontSize: "1rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.situation}</p>
           </div>
         </div>
 
         {/* How ultrasound helps */}
         <div style={{ background: "#fff", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(28,171,226,0.06)" }}>
-          <div style={{ padding: "0.75rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1rem" }}>🔬</span>
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#0E6EA3" }}>How Ultrasound Helps</span>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(28,171,226,0.07)", borderBottom: "1px solid rgba(28,171,226,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#0E6EA3", fontFamily: "'Montserrat',sans-serif" }}>🔬 How Ultrasound Helps</span>
           </div>
-          <div style={{ padding: "1.25rem" }}>
-            <p style={{ fontSize: "0.92rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.howUltrasoundHelps}</p>
+          <div style={{ padding: "1.4rem" }}>
+            <p style={{ fontSize: "1rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.howUltrasoundHelps}</p>
           </div>
         </div>
 
         {/* Training gap */}
         <div style={{ background: "#fff", border: "1px solid rgba(230,126,34,0.2)", borderRadius: 12, overflow: "hidden", boxShadow: "0 2px 16px rgba(230,126,34,0.06)" }}>
-          <div style={{ padding: "0.75rem 1.25rem", background: "rgba(230,126,34,0.07)", borderBottom: "1px solid rgba(230,126,34,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-            <span style={{ fontSize: "1rem" }}>🎓</span>
-            <span style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.16em", color: "#C05621" }}>The Training Gap</span>
+          <div style={{ padding: "0.85rem 1.25rem", background: "rgba(230,126,34,0.07)", borderBottom: "1px solid rgba(230,126,34,0.15)", display: "flex", alignItems: "center", gap: "0.6rem" }}>
+            <span style={{ fontSize: "1.05rem", fontWeight: 700, color: "#C05621", fontFamily: "'Montserrat',sans-serif" }}>🎓 The Training Gap</span>
           </div>
-          <div style={{ padding: "1.25rem" }}>
-            <p style={{ fontSize: "0.92rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.trainingGap}</p>
+          <div style={{ padding: "1.4rem" }}>
+            <p style={{ fontSize: "1rem", color: "#2a3f50", lineHeight: 1.82, margin: 0 }}>{solution.trainingGap}</p>
           </div>
         </div>
 
@@ -653,7 +657,7 @@ function SectionHeading({ icon, title, color }: { icon: string; title: string; c
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.25rem" }}>
       <span style={{ fontSize: "1.5rem" }}>{icon}</span>
-      <h2 style={{ fontSize: "1.45rem", fontWeight: 800, color: "#1a2e3b" }}>{title}</h2>
+      <h2 style={{ fontSize: "1.45rem", fontWeight: 800, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif" }}>{title}</h2>
       <div style={{ flex: 1, height: 2, background: color + "55", borderRadius: 1 }} />
     </div>
   );
@@ -664,7 +668,7 @@ function AnalysisCard({ title, color, borderColor, children }: { title: string; 
     <div style={{ background: "#fff", border: `1px solid ${borderColor}`, borderRadius: 10, overflow: "hidden", boxShadow: "0 2px 12px rgba(28,171,226,0.06)" }}>
       <div style={{ padding: "0.85rem 1.4rem", background: color + "12", borderBottom: `1px solid ${borderColor}`, display: "flex", alignItems: "center", gap: "0.5rem" }}>
         <div style={{ width: 3, height: 18, background: color, borderRadius: 2, flexShrink: 0 }} />
-        <span style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.14em", color: "#1a2e3b" }}>{title}</span>
+        <span style={{ fontSize: "1rem", fontWeight: 700, color: "#1a2e3b", fontFamily: "'Montserrat',sans-serif", letterSpacing: "-0.01em" }}>{title}</span>
       </div>
       <div style={{ padding: "1.4rem" }}>{children}</div>
     </div>
