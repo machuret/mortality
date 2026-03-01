@@ -50,13 +50,13 @@ export default function Header() {
             🌍
           </div>
           <span style={{ fontSize: "0.95rem", fontWeight: 700, color: "#fff", letterSpacing: "0.01em" }}>Every Life Counts</span>
-          <span style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.38)", textTransform: "uppercase", letterSpacing: "0.1em", marginLeft: "0.5rem" }}>Global Mortality Tracker</span>
+          <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.65)", textTransform: "uppercase", letterSpacing: "0.1em", marginLeft: "0.5rem", fontWeight: 500 }}>Global Mortality Tracker</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <div style={{ fontSize: "0.62rem", color: "#4CAF50", textTransform: "uppercase", letterSpacing: "0.12em", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.35rem" }}>
             <span className="live-dot" /> Live Estimates
           </div>
-          <span style={{ fontSize: "0.58rem", color: "rgba(255,255,255,0.25)", marginLeft: "1rem" }}>WHO · UNICEF · UN IGME 2024</span>
+          <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.6)", marginLeft: "1rem", fontWeight: 500 }}>WHO · UNICEF · UN IGME 2024</span>
         </div>
       </div>
 
@@ -67,13 +67,13 @@ export default function Header() {
           {/* Main ticker */}
           <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "1rem 2.5rem 1rem 0", borderRight: "1px solid rgba(255,255,255,0.1)", flexShrink: 0, position: "relative" }}>
             <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 4, background: "#1CABE2", boxShadow: "0 0 16px rgba(28,171,226,0.8), 0 0 32px rgba(28,171,226,0.4)" }} />
-            <div style={{ fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(255,255,255,0.5)", fontWeight: 600, marginBottom: "0.2rem", display: "flex", alignItems: "center", gap: "0.4rem", paddingLeft: "1rem" }}>
+            <div style={{ fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.18em", color: "rgba(255,255,255,0.85)", fontWeight: 700, marginBottom: "0.2rem", display: "flex", alignItems: "center", gap: "0.4rem", paddingLeft: "1rem" }}>
               <span className="live-dot" /> Child Deaths Since Jan 1, 2026
             </div>
             <div className={`main-ticker-value${ticking ? " c-tick" : ""}`} style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "3rem", fontWeight: 900, color: "#ffffff", lineHeight: 1, letterSpacing: "0.04em", paddingLeft: "1rem", textShadow: "0 0 40px rgba(28,171,226,0.6)" }}>
               {main.toLocaleString("en-US")}
             </div>
-            <div className="main-ticker-sub" style={{ fontSize: "0.68rem", color: "#1CABE2", fontWeight: 500, letterSpacing: "0.06em", paddingLeft: "1rem", marginTop: "0.2rem", opacity: 0.85 }}>
+            <div className="main-ticker-sub" style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.7)", fontWeight: 500, letterSpacing: "0.04em", paddingLeft: "1rem", marginTop: "0.2rem" }}>
               +1 every 6 seconds · Based on 4.8M annual deaths (WHO/UNICEF 2023)
             </div>
           </div>
@@ -86,11 +86,11 @@ export default function Header() {
               { label: "Mothers Today",    val: mother, cls: "mother-c", unit: "pregnancy-related" },
             ].map(({ label, val, cls, unit }) => (
               <div key={label} style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "0.9rem 2rem", borderRight: "1px solid rgba(255,255,255,0.08)", textAlign: "center", minWidth: 155, position: "relative" }}>
-                <div style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "rgba(255,255,255,0.45)", fontWeight: 600, marginBottom: "0.3rem", whiteSpace: "nowrap" }}>{label}</div>
+                <div style={{ fontSize: "0.65rem", textTransform: "uppercase", letterSpacing: "0.14em", color: "rgba(255,255,255,0.8)", fontWeight: 700, marginBottom: "0.3rem", whiteSpace: "nowrap" }}>{label}</div>
                 <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2rem", fontWeight: 800, lineHeight: 1, letterSpacing: "0.03em", color: cls === "child-c" ? "#FFB74D" : cls === "mother-c" ? "#EF9A9A" : "rgba(255,255,255,0.9)", textShadow: cls === "child-c" ? "0 0 20px rgba(255,183,77,0.4)" : cls === "mother-c" ? "0 0 20px rgba(239,154,154,0.4)" : "none" }}>
                   {val.toLocaleString("en-US")}
                 </div>
-                <div style={{ fontSize: "0.58rem", color: "rgba(255,255,255,0.25)", textTransform: "uppercase", letterSpacing: "0.1em", marginTop: "0.2rem" }}>{unit}</div>
+                <div style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", letterSpacing: "0.1em", marginTop: "0.2rem", fontWeight: 500 }}>{unit}</div>
               </div>
             ))}
           </div>
