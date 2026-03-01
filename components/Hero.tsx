@@ -83,7 +83,9 @@ export default function Hero() {
                 onMouseOver={e => { (e.currentTarget as HTMLButtonElement).style.background = "#FF5520"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-2px)"; }}
                 onMouseOut={e => { (e.currentTarget as HTMLButtonElement).style.background = "#E8480E"; (e.currentTarget as HTMLButtonElement).style.transform = "translateY(0)"; }}
               >
-                ❤ Help Prevent This <span style={{ fontSize: "1.15rem", fontWeight: 900 }}>→</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                Take Action
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
               <button
                 onClick={() => scrollTo(".map-card")}
@@ -91,29 +93,104 @@ export default function Hero() {
                 onMouseOver={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = "rgba(255,255,255,0.55)"; b.style.color = "#fff"; b.style.background = "rgba(255,255,255,0.14)"; }}
                 onMouseOut={e => { const b = e.currentTarget as HTMLButtonElement; b.style.borderColor = "rgba(255,255,255,0.25)"; b.style.color = "rgba(255,255,255,0.85)"; b.style.background = "rgba(255,255,255,0.08)"; }}
               >
-                📊 Explore the Data
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                Explore the Data
               </button>
             </div>
           </div>
 
-          {/* Right stat cards */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {[
-              { icon: "👶", num: "4.8M", cls: "blue",   desc: <>Children under 5 died in 2023<br /><strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>2.3M were newborns in their first 28 days</strong></> },
-              { icon: "🤱", num: "260K", cls: "orange", desc: <>Mothers died during pregnancy or childbirth<br /><strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>70% in Sub-Saharan Africa</strong></> },
-              { icon: "📉", num: "–52%", cls: "red",    desc: <>Reduction in under-5 mortality since 2000<br /><strong style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>But progress is now slowing</strong></> },
-            ].map(({ icon, num, cls, desc }) => (
-              <div key={num} style={{ background: "rgba(0,20,45,0.55)", border: "1px solid rgba(255,255,255,0.14)", borderRadius: 10, padding: "1.4rem 1.6rem", display: "flex", alignItems: "center", gap: "1.2rem", backdropFilter: "blur(12px)", transition: "background 0.2s" }}
-                onMouseOver={e => (e.currentTarget as HTMLDivElement).style.background = "rgba(0,30,60,0.7)"}
-                onMouseOut={e => (e.currentTarget as HTMLDivElement).style.background = "rgba(0,20,45,0.55)"}
-              >
-                <div style={{ fontSize: "2rem", flexShrink: 0 }}>{icon}</div>
-                <div>
-                  <span style={{ fontSize: "2.3rem", fontWeight: 900, lineHeight: 1, display: "block", color: cls === "blue" ? "#5DCCF5" : cls === "orange" ? "#FFB74D" : "#EF9A9A" }}>{num}</span>
-                  <div style={{ fontSize: "0.84rem", color: "rgba(255,255,255,0.52)", marginTop: "0.3rem", lineHeight: 1.45 }}>{desc}</div>
+          {/* Right — professional data panels */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+
+            {/* Panel 1 — Child Deaths */}
+            <div style={{ background: "rgba(0,15,35,0.7)", border: "1px solid rgba(28,171,226,0.2)", borderRadius: 8, overflow: "hidden", backdropFilter: "blur(16px)", transition: "border-color 0.2s" }}
+              onMouseOver={e => (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(28,171,226,0.45)"}
+              onMouseOut={e => (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(28,171,226,0.2)"}
+            >
+              <div style={{ display: "flex" }}>
+                <div style={{ width: 4, background: "#1CABE2", flexShrink: 0 }} />
+                <div style={{ padding: "1.2rem 1.4rem", flex: 1 }}>
+                  <div style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#1CABE2", marginBottom: "0.5rem" }}>Child Mortality · Under 5</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.5rem" }}>
+                    <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>4.8M</span>
+                    <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>deaths in 2023</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "1.5rem" }}>
+                    <div>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#5DCCF5" }}>2.3M</div>
+                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>Newborns (first 28 days)</div>
+                    </div>
+                    <div style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
+                    <div>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#5DCCF5" }}>92%</div>
+                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>In low-income countries</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Panel 2 — Maternal Deaths */}
+            <div style={{ background: "rgba(0,15,35,0.7)", border: "1px solid rgba(255,183,77,0.2)", borderRadius: 8, overflow: "hidden", backdropFilter: "blur(16px)", transition: "border-color 0.2s" }}
+              onMouseOver={e => (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,183,77,0.45)"}
+              onMouseOut={e => (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,183,77,0.2)"}
+            >
+              <div style={{ display: "flex" }}>
+                <div style={{ width: 4, background: "#FFB74D", flexShrink: 0 }} />
+                <div style={{ padding: "1.2rem 1.4rem", flex: 1 }}>
+                  <div style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#FFB74D", marginBottom: "0.5rem" }}>Maternal Mortality · Pregnancy-Related</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.5rem" }}>
+                    <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>260K</span>
+                    <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>deaths in 2023</span>
+                  </div>
+                  <div style={{ display: "flex", gap: "1.5rem" }}>
+                    <div>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#FFB74D" }}>70%</div>
+                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>Sub-Saharan Africa</div>
+                    </div>
+                    <div style={{ width: 1, background: "rgba(255,255,255,0.08)", flexShrink: 0 }} />
+                    <div>
+                      <div style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "1.1rem", fontWeight: 700, color: "#FFB74D" }}>~1</div>
+                      <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.38)", marginTop: "0.15rem" }}>Death every 2 minutes</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Panel 3 — Progress */}
+            <div style={{ background: "rgba(0,15,35,0.7)", border: "1px solid rgba(239,154,154,0.2)", borderRadius: 8, overflow: "hidden", backdropFilter: "blur(16px)", transition: "border-color 0.2s" }}
+              onMouseOver={e => (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(239,154,154,0.45)"}
+              onMouseOut={e => (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(239,154,154,0.2)"}
+            >
+              <div style={{ display: "flex" }}>
+                <div style={{ width: 4, background: "#EF9A9A", flexShrink: 0 }} />
+                <div style={{ padding: "1.2rem 1.4rem", flex: 1 }}>
+                  <div style={{ fontSize: "0.62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.18em", color: "#EF9A9A", marginBottom: "0.5rem" }}>Progress Since 2000 · Decelerating</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "0.6rem" }}>
+                    <span style={{ fontFamily: "'Roboto Mono',monospace", fontSize: "2.6rem", fontWeight: 900, color: "#fff", lineHeight: 1, letterSpacing: "-0.02em" }}>–52%</span>
+                    <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.4)", fontWeight: 400 }}>under-5 mortality reduction</span>
+                  </div>
+                  {/* Progress bar */}
+                  <div style={{ marginBottom: "0.4rem" }}>
+                    <div style={{ height: 5, background: "rgba(255,255,255,0.08)", borderRadius: 3, overflow: "hidden" }}>
+                      <div style={{ height: "100%", width: "52%", background: "linear-gradient(90deg,#EF9A9A,#C0392B)", borderRadius: 3 }} />
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "0.3rem" }}>
+                      <span style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.28)" }}>2000 baseline</span>
+                      <span style={{ fontSize: "0.62rem", color: "rgba(239,154,154,0.7)" }}>Target: –67% by 2030 (SDG)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Source strip */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.6rem 0.2rem" }}>
+              <div style={{ width: 16, height: 1, background: "rgba(255,255,255,0.15)" }} />
+              <span style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.22)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Sources: WHO · UNICEF · UN IGME 2024 · World Bank</span>
+            </div>
+
           </div>
 
         </div>
